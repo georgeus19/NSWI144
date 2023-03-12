@@ -9,6 +9,44 @@
 @prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
 @prefix ex-ukregions:  <http://example.org/opendata/uk/regions/> .
 
+ex-ukregions:K02000001
+        rdf:type        <https://dbpedia.org/ontology/Country> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   ex-ukregions:regionScheme ;
+        skos:prefLabel  "UNITED KINGDOM"@en .
+
+ex-observation:K02000001-births
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:uk-birth-regions ;
+        ex-dimension:refArea      ex-ukregions:K02000001 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:liveBirths ;
+        ex-measure:liveBirths     "692722"^^xsd:nonNegativeInteger .
+
+ex-observation:K02000001-cbr
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:uk-birth-regions ;
+        ex-dimension:refArea       ex-ukregions:K02000001 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:crudeBirthRate ;
+        ex-measure:crudeBirthRate  "10.3"^^xsd:decimal .
+
+ex-observation:K02000001-gfr
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:uk-birth-regions ;
+        ex-dimension:refArea      ex-ukregions:K02000001 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:generalFertilityRate ;
+        ex-measure:generalFertilityRate  "53.6"^^xsd:decimal .
+
+ex-observation:K02000001-tfr
+        rdf:type                       qb:Observation ;
+        qb:dataSet                     ex:uk-birth-regions ;
+        ex-dimension:refArea           ex-ukregions:K02000001 ;
+        ex-dimension:refPeriod         <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType       ex-measure:totalFertilityRate ;
+        ex-measure:totalFertilityRate  "1.54"^^xsd:decimal .
+
 ex-ukregions:K04000001J99000001
         rdf:type        <https://dbpedia.org/ontology/Country> ;
         rdf:type        skos:Concept ;

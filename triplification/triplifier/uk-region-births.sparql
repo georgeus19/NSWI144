@@ -64,4 +64,6 @@ CONSTRUCT {
     BIND(STRDT(?m, xsd:decimal) AS ?gfr)
     BIND(STRDT(?n, xsd:decimal) AS ?tfr)
 }
-OFFSET 1
+# With -H option and OFFSET 1, it skips the second row and not the first one...
+# So OFFSET must be commented out and we get the error msg for header row...
+# OFFSET 1

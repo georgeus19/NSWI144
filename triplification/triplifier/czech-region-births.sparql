@@ -30,5 +30,7 @@ CONSTRUCT {
 
     BIND(IRI(CONCAT("http://example.org/opendata/czech/births/observation/", ?a)) AS ?observation)
     BIND(STRDT(?b, xsd:nonNegativeInteger) AS ?births)
-} 
-OFFSET 1
+}
+# With -H option and OFFSET 1, it skips the second row and start with Pardubicky kraj which is 8th row...
+# So OFFSET must be commented out and but unlike in other cases no error msg...
+# OFFSET 1

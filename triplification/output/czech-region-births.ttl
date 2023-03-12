@@ -9,6 +9,18 @@
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
 
+ex-czechregions:19  rdf:type  <https://data.cssz.cz/ontology/ruian/Stat> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Česká republika"@cs .
+
+ex-observation:967523762
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:19 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "111793"^^xsd:nonNegativeInteger .
+
 ex-czechregions:3093  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
         rdf:type        skos:Concept ;
         skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
