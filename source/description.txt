@@ -14,6 +14,9 @@ Dataset obsahuje pohyb obyvatel v regionu za rok 2021. To znamena pocty narozeny
 
 Finalni pouzitelny dataset, ktery triplifikuju` je v souboru `download/czech-region-births.csv`.
 
+## Triplifikace
+Pouzivam tarql 1.2 z linku ze stranek prednasky. Prijde mi, ze je trochu zabugovany, co se tyce preskakovani headeru (s optionem -H misto headeru preskoci treba 2. radek?), ale vypada to, ze dava spravne vysledky.
+
 # Druhy dataset - pocty lidi v regionech CR 2021
 ## Zdroj
 https://www.czso.cz/csu/czso/pocet-obyvatel-v-obcich-k-112022
@@ -24,6 +27,9 @@ Dataset je v excelu a pro kazdy region az po okres obsahuje pocet lidi v danem r
 
 Puvodni dataset jsem prevedl do csv a stravitelne podoby - `download/czech-region-people.csv`. Pocet lidi a prumerny vek nadale uvazuji jen spolecne pro muze a zeny.
 
+## Triplifikace
+Pouzivam tarql 1.2 z linku ze stranek prednasky. Prijde mi, ze je trochu zabugovany, co se tyce preskakovani headeru (s optionem -H misto headeru preskoci treba 2. radek?), ale vypada to, ze dava spravne vysledky.
+
 # Treti dataset - pocty narozenych lidi v UK, Crude Birth Rate, Total Birth Rate, a dalsi charakteristiky za rok 2021
 ## Zdroj
 https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales
@@ -31,3 +37,5 @@ https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/liv
 ## Obsah
 Jedna se o obrovsky excel souboru, ktery obsahuje nejruznejsi charakteristiky narozenych deti za rok 2021 v UK. Ja pouzivam data z listu 1. Ten obsahuje administrativni regiony v UK a jejich statistiky co se narozenych lidi tyce. Ze 16 moznych sloupcu jsem si vybral `pocet narozenych`, `Crude Birth Rate`, `General Fertility Rate`, `Total Fertility Rate`.
 
+## Triplifikace
+Pouzivam tarql 1.2 z linku ze stranek prednasky. Prijde mi, ze je trochu zabugovany, co se tyce preskakovani headeru (s optionem -H misto headeru preskoci treba 2. radek?), ale vypada to, ze dava spravne vysledky.
