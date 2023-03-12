@@ -1,0 +1,89 @@
+@prefix ex: <http://example.org/> . 
+@prefix ex-observation: <http://example.org/observation> . 
+@prefix ex-dimension: <http://example.org/dimension> . 
+@prefix ex-measure: <http://example.org/measure> . 
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+
+ex-dimension:refArea a qb:DimensionProperty, qb:CodedProperty ;
+    rdfs:label "reference area"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    qb:codeList <https://data.cssz.cz/resource/ruian/ConceptScheme> .
+
+ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty; 
+    rdfs:label "reference period"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refPeriod; 
+    rdfs:range interval:Interval; 
+    qb:concept sdmx-concept:refPeriod .
+
+ex-measure:liveBirths a rdf:Property, qb:MeasureProperty;
+    rdfs:label "live births"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:nonNegativeInteger . 
+
+ex:dsd-czech-birth-regions a qb:DataStructureDefinition;
+    qb:component [ qb:dimension ex:refArea;         qb:order 1 ];
+    qb:component [ qb:dimension ex:refPeriod;       qb:order 2 ];
+    qb:component [ qb:measure ex-measure:liveBirths];
+    qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired "true"^^xsd:boolean;
+                   qb:componentAttachment qb:DataSet; ] .
+
+ex:czech-birth-regions a qb:DataSet;
+    rdfs:label "live births per region"@en;
+    rdfs:comment "Live births values for regions in the Czech Republic."@en;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/ontology/numberOfPersonBornInPlace> ;
+    qb:structure ex:dsd-czech-birth-regions .
+
+ex:19 a <https://data.cssz.cz/ontology/ruian/Stat>, skos:Concept;
+    skos:inScheme  <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+    skos:prefLabel "Česká republika"@cs .
+
+ex-observation:967523762 a qb:Observation;
+    qb:dataSet  ex:czech-birth-regions ;
+    ex:refArea  ex:19 ;                  
+    ex:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+    ex-measure:liveBirths 111793 .
+
+ex:3042 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
+    skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+    skos:prefLabel  "Plzeňský kraj"@cs .
+
+ex-observation:967588129 a qb:Observation;
+    qb:dataSet  ex:czech-birth-regions ;
+    ex:refArea  ex:3042 ;                  
+    ex:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+    ex-measure:liveBirths 5933 .
+
+ex:3115 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
+    skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+    skos:prefLabel  "Jihomoravský kraj"@cs .
+
+ex-observation:967566776 a qb:Observation;
+    qb:dataSet  ex:czech-birth-regions ;
+    ex:refArea  ex:3115 ;                  
+    ex:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+    ex-measure:liveBirths 13085 .
+
+ex:40410 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concept;
+    skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+    skos:prefLabel  "Tachov"@cs .
+
+ex-observation:967566637 a qb:Observation;
+    qb:dataSet  ex:czech-birth-regions ;
+    ex:refArea  ex:40410 ;                  
+    ex:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+    ex-measure:liveBirths 579 .
+
+ex:40461 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concept;
+    skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+    skos:prefLabel  "Chomutov"@cs .
+
+ex-observation:967566670 a qb:Observation;
+    qb:dataSet  ex:czech-birth-regions ;
+    ex:refArea  ex:40461 ;                  
+    ex:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+    ex-measure:liveBirths 1185 .
