@@ -30,7 +30,7 @@ ex:dsd-czech-birth-regions a qb:DataStructureDefinition;
     qb:component [ qb:dimension ex-dimension:refPeriod;       qb:order 2 ];
     qb:component [ qb:measure ex-measure:liveBirths];
     qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
-                   qb:componentRequired "true"^^xsd:boolean;
+                   qb:componentRequired true;
                    qb:componentAttachment qb:DataSet; ] .
 
 ex:czech-birth-regions a qb:DataSet;
@@ -45,7 +45,7 @@ ex-czechregions:19 a <https://data.cssz.cz/ontology/ruian/Stat>, skos:Concept;
 
 ex-observation:967523762 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
-    ex-dimension:refArea  ex:19 ;                  
+    ex-dimension:refArea  ex-czechregions:19 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-measure:liveBirths 111793 .
 
@@ -55,7 +55,7 @@ ex-czechregions:3042 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
 
 ex-observation:967588129 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
-    ex-dimension:refArea  ex:3042 ;                  
+    ex-dimension:refArea  ex-czechregions:3042 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-measure:liveBirths 5933 .
 
@@ -65,7 +65,7 @@ ex-czechregions:3115 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
 
 ex-observation:967566776 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
-    ex-dimension:refArea  ex:3115 ;                  
+    ex-dimension:refArea  ex-czechregions:3115 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-measure:liveBirths 13085 .
 
@@ -75,7 +75,7 @@ ex-czechregions:40410 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concep
 
 ex-observation:967566637 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
-    ex-dimension:refArea  ex:40410 ;                  
+    ex-dimension:refArea  ex-czechregions:40410 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-measure:liveBirths 579 .
 
@@ -85,6 +85,6 @@ ex-czechregions:40461 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concep
 
 ex-observation:967566670 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
-    ex-dimension:refArea  ex:40461 ;                  
+    ex-dimension:refArea  ex-czechregions:40461 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-measure:liveBirths 1185 .
