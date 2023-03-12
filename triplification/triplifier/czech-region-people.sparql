@@ -1,0 +1,46 @@
+PREFIX ex: <http://example.org/opendata/czech/people/>
+PREFIX ex-czechregions: <http://example.org/opendata/czech/people/regions/>
+PREFIX ex-observation: <http://example.org/opendata/czech/people/observation/>
+PREFIX ex-dimension: <http://example.org/opendata/czech/people/dimension/>
+PREFIX ex-measure: <http://example.org/opendata/czech/people/measure/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX xsd: <https://www.w3.org/2001/XMLSchema#>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX interval: <http://reference.data.gov.uk/def/intervals/>
+
+CONSTRUCT {
+    ?region a ?regionType, skos:Concept;
+        skos:inScheme <https://data.cssz.cz/resource/ruian/ConceptScheme>;
+        skos:prefLabel ?regionName .
+    
+    ?observationNumberOfPeople a qb:Observation;
+        qb:dataSet  ex:czech-people-regions  ;
+        ex-dimension:refArea  ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:numberOfPeople;
+        ex-measure:numberOfPeople ?numberOfPeople .
+
+    ?observationAverageAge a qb:Observation;
+        qb:dataSet  ex:czech-people-regions ;
+        ex-dimension:refArea  ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:averageAge;
+        ex-measure:averageAge ?averageAge .
+
+} WHERE {
+    BIND(IRI(CONCAT("http://example.org/opendata/czech/people/regions/", ?a)) AS ?region)
+    BIND(STRLANG(?b, "cs") AS ?regionName)
+    VALUES (?i ?regionType) {
+        ("zeme" <https://data.cssz.cz/ontology/ruian/Stat>)
+        ("kraj" <https://data.cssz.cz/ontology/ruian/Vusc>)
+        ("okres" <https://data.cssz.cz/ontology/ruian/Okres>)
+    }
+
+    BIND(IRI(CONCAT("http://example.org/opendata/czech/people/observation/", ?a, "-numberOfPeople")) AS ?observationNumberOfPeople)
+    BIND(IRI(CONCAT("http://example.org/opendata/czech/people/observation/", ?a, "-averageAge")) AS ?observationAverageAge)
+    BIND(STRDT(?c, xsd:nonNegativeInteger) AS ?numberOfPeople)
+    BIND(STRDT(?f, xsd:decimal) AS ?averageAge)
+} 
+# With -H option and OFFSET 1, it skips the second row and not the first one...
+# So OFFSET must be commented out and we get the error msg for header row...
+# OFFSET 1
