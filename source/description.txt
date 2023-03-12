@@ -1,0 +1,33 @@
+# Idea
+Vybral jsem si statisticka data o poctu narozenych lidi v administrativnich regionech v CR a UK. Prvni dataset obsahuje pocty narozenych lidi v CR, druhy pocty lidi v regionech v CR a treti pocty narozenych lidi v UK regionech spolu s dalsimi vhodnymi udaji jako treba Crude Birth Rate. Idea je spojit regiony v CR a UK dle podobnosti, jak moc se v regionech rodi stejny pocet lidi. To jednak lze udelat primo pomoci poctu lidi, coz ma ale nevyhodu, ze v ruznych regionech zije jiny pocet lidi. 
+
+Proto jsem si vybral ten druhy dataset, ktery obsahuje pocty lidi v regionech v CR, a pomoci prvnich dvou datasetu spocitam Crude Birth Rate pro regiony v CR a slinkuji. 
+
+Ze vsech datasetu jsem vybral nejrelevantnejsi sloupce pro muj zamer a nereprezentoval uplne vsechny. I v diagramu pro prehlednost uvadim jen to, s cim jsem pozdeji pracoval.
+
+# Prvni dataset - pocty narozenych lidi pro regiony CR 2021
+## Zdroj
+https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F00025593%2F12032e1445fd74fa08da79b14137fc29
+
+## Obsah
+Dataset obsahuje pohyb obyvatel v regionu za rok 2021. To znamena pocty narozenych, pocty zemrelych, pocty pristehovalych atd... Dataset je originalne v csv a sloupec `vuk_text` znaci, pro jakou statistiku radka odpovida. Originalni dataset je v `download/czech-region-people-movement.csv`. Ma asi 50k radku, vybral jsem radky o narozenych a ulozil do `download/czech-region-births-with-towns.csv`. Porad asi 6k radku a navic udaje o poctu lidi z druheho datasetu pro mesta nemam. 
+
+Finalni pouzitelny dataset, ktery triplifikuju` je v souboru `download/czech-region-births.csv`.
+
+# Druhy dataset - pocty lidi v regionech CR 2021
+## Zdroj
+https://www.czso.cz/csu/czso/pocet-obyvatel-v-obcich-k-112022
+resp. primo download link: https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2
+
+## Obsah
+Dataset je v excelu a pro kazdy region az po okres obsahuje pocet lidi v danem regionu a prumerny vek za rok 2021. Tyto statistiky jsou pocitany jen jak pro muze, pro zeny, tak i dohromady. Puvodni dataset je v souboru `download/czech-region-people.xlsx`. 
+
+Puvodni dataset jsem prevedl do csv a stravitelne podoby - `download/czech-region-people.csv`. Pocet lidi a prumerny vek nadale uvazuji jen spolecne pro muze a zeny.
+
+# Treti dataset - pocty narozenych lidi v UK, Crude Birth Rate, Total Birth Rate, a dalsi charakteristiky za rok 2021
+## Zdroj
+https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales
+
+## Obsah
+Jedna se o obrovsky excel souboru, ktery obsahuje nejruznejsi charakteristiky narozenych deti za rok 2021 v UK. Ja pouzivam data z listu 1. Ten obsahuje administrativni regiony v UK a jejich statistiky co se narozenych lidi tyce. Ze 16 moznych sloupcu jsem si vybral `pocet narozenych`, `Crude Birth Rate`, `General Fertility Rate`, `Total Fertility Rate`.
+
