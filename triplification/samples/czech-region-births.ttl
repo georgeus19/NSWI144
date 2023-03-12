@@ -1,8 +1,8 @@
 @prefix ex: <http://example.org/opendata/czech/births/> . 
-@prefix ex-czechregions: <http://example.org/opendata/czech/regions/> . 
-@prefix ex-observation: <http://example.org/opendata/czech/births/observation#> . 
-@prefix ex-dimension: <http://example.org/opendata/czech/births/dimension#> . 
-@prefix ex-measure: <http://example.org/opendata/czech/births/measure#> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/births/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/births/measure/> . 
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
@@ -47,7 +47,7 @@ ex-observation:967523762 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
     ex-dimension:refArea  ex-czechregions:19 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-    ex-measure:liveBirths 111793 .
+    ex-measure:liveBirths "111793"^^xsd:nonNegativeInteger .
 
 ex-czechregions:3042 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
     skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
@@ -57,7 +57,7 @@ ex-observation:967588129 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
     ex-dimension:refArea  ex-czechregions:3042 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-    ex-measure:liveBirths 5933 .
+    ex-measure:liveBirths "5933"^^xsd:nonNegativeInteger .
 
 ex-czechregions:3115 a <https://data.cssz.cz/ontology/ruian/Vusc>, skos:Concept;
     skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
@@ -67,7 +67,7 @@ ex-observation:967566776 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
     ex-dimension:refArea  ex-czechregions:3115 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-    ex-measure:liveBirths 13085 .
+    ex-measure:liveBirths "13085"^^xsd:nonNegativeInteger .
 
 ex-czechregions:40410 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concept;
     skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
@@ -77,7 +77,7 @@ ex-observation:967566637 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
     ex-dimension:refArea  ex-czechregions:40410 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-    ex-measure:liveBirths 579 .
+    ex-measure:liveBirths "579"^^xsd:nonNegativeInteger .
 
 ex-czechregions:40461 a <https://data.cssz.cz/ontology/ruian/Okres>, skos:Concept;
     skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
@@ -87,4 +87,4 @@ ex-observation:967566670 a qb:Observation;
     qb:dataSet  ex:czech-birth-regions ;
     ex-dimension:refArea  ex-czechregions:40461 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-    ex-measure:liveBirths 1185 .
+    ex-measure:liveBirths "1185"^^xsd:nonNegativeInteger .

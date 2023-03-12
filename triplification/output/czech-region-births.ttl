@@ -1,0 +1,1166 @@
+@prefix ex-czechregions:  <http://example.org/opendata/czech/regions/> .
+@prefix qb:  <http://purl.org/linked-data/cube#> .
+@prefix ex-observation:  <http://example.org/opendata/czech/births/observation/> .
+@prefix ex-dimension:  <http://example.org/opendata/czech/births/dimension/> .
+@prefix ex:  <http://example.org/opendata/czech/births/> .
+@prefix ex-measure:  <http://example.org/opendata/czech/births/measure/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
+
+ex-czechregions:3093  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pardubický kraj"@cs .
+
+ex-observation:967523998
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3093 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "5421"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3123  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Olomoucký kraj"@cs .
+
+ex-observation:967502584
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3123 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "6394"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3131  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Zlínský kraj"@cs .
+
+ex-observation:967502610
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3131 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "6040"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3140  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Moravskoslezský kraj"@cs .
+
+ex-observation:967524119
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3140 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "11978"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3018  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hlavní město Praha"@cs .
+
+ex-observation:967502323
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3018 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "15157"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3069  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústecký kraj"@cs .
+
+ex-observation:967545248
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3069 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "7886"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3077  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Liberecký kraj"@cs .
+
+ex-observation:967545279
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3077 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "4386"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3034  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihočeský kraj"@cs .
+
+ex-observation:967459665
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3034 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "6699"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3051  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karlovarský kraj"@cs .
+
+ex-observation:967480977
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3051 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2619"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3085  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Královéhradecký kraj"@cs .
+
+ex-observation:967438328
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3085 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "5537"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3026  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Středočeský kraj"@cs .
+
+ex-observation:967459620
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3026 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "15111"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3107  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kraj Vysočina"@cs .
+
+ex-observation:967566755
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3107 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "5547"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3115  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihomoravský kraj"@cs .
+
+ex-observation:967566776
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3115 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "13085"^^xsd:nonNegativeInteger .
+
+ex-czechregions:3042  rdf:type  <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeňský kraj"@cs .
+
+ex-observation:967588129
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:3042 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "5933"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40517
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústí nad Labem"@cs .
+
+ex-observation:967523951
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40517 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1246"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40568
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hradec Králové"@cs .
+
+ex-observation:967523979
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40568 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1809"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40797
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Prostějov"@cs .
+
+ex-observation:967545397
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40797 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1077"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40827
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kroměříž"@cs .
+
+ex-observation:967545408
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40827 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1057"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40835
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Uherské Hradiště"@cs .
+
+ex-observation:967545412
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40835 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1515"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40843
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Vsetín"@cs .
+
+ex-observation:967545416
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40843 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1474"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40592
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rychnov nad Kněžnou"@cs .
+
+ex-observation:967523990
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40592 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "807"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40169
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Benešov"@cs .
+
+ex-observation:967545117
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40169 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1056"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40614
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Chrudim"@cs .
+
+ex-observation:967524003
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40614 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1108"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40681
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Třebíč"@cs .
+
+ex-observation:967502545
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40681 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1177"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40690
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Žďár nad Sázavou"@cs .
+
+ex-observation:967502551
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40690 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1366"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40711
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Brno-město"@cs .
+
+ex-observation:967502560
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40711 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "4413"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40622
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pardubice"@cs .
+
+ex-observation:967545331
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40622 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1834"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40304
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jindřichův Hradec"@cs .
+
+ex-observation:967545184
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40304 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "907"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40339
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Strakonice"@cs .
+
+ex-observation:967545194
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40339 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "701"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40363
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Klatovy"@cs .
+
+ex-observation:967545211
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40363 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "773"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40401
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rokycany"@cs .
+
+ex-observation:967545220
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40401 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "463"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40789
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Olomouc"@cs .
+
+ex-observation:967502594
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40789 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2571"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40819
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Šumperk"@cs .
+
+ex-observation:967502603
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40819 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1140"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40207
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kutná Hora"@cs .
+
+ex-observation:967502344
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40207 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "826"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40223
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Mladá Boleslav"@cs .
+
+ex-observation:967502351
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40223 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1415"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40240
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Praha-východ"@cs .
+
+ex-observation:967502358
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40240 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2149"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40321
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Prachatice"@cs .
+
+ex-observation:967523855
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40321 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "540"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40371
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-město"@cs .
+
+ex-observation:967523873
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40371 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1988"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40894
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Nový Jičín"@cs .
+
+ex-observation:967545438
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40894 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1557"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40878
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Frýdek-Místek"@cs .
+
+ex-observation:967502637
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40878 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2206"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40886
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karviná"@cs .
+
+ex-observation:967502640
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40886 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2290"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40291
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Český Krumlov"@cs .
+
+ex-observation:967502379
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40291 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "581"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40380
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-jih"@cs .
+
+ex-observation:967523877
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40380 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "690"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40398
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-sever"@cs .
+
+ex-observation:967523882
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40398 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "864"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40231
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Nymburk"@cs .
+
+ex-observation:967545145
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40231 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1122"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40355
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Domažlice"@cs .
+
+ex-observation:967502402
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40355 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "576"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40452
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Děčín"@cs .
+
+ex-observation:967523919
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40452 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1171"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40738
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Břeclav"@cs .
+
+ex-observation:967545373
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40738 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1235"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40771
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jeseník"@cs .
+
+ex-observation:967438415
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40771 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "335"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40801
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Přerov"@cs .
+
+ex-observation:967438431
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40801 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1271"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40916
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ostrava-město"@cs .
+
+ex-observation:967459929
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40916 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "3197"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40860
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Bruntál"@cs .
+
+ex-observation:967438465
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40860 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "862"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40185
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kladno"@cs .
+
+ex-observation:967480874
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40185 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1667"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40177
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Beroun"@cs .
+
+ex-observation:967438185
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40177 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1091"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40274
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rakovník"@cs .
+
+ex-observation:967438211
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40274 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "556"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40436
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karlovy Vary"@cs .
+
+ex-observation:967459724
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40436 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1017"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40282
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "České Budějovice"@cs .
+
+ex-observation:967438223
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40282 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2183"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40312
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Písek"@cs .
+
+ex-observation:967438233
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40312 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "716"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40347
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Tábor"@cs .
+
+ex-observation:967480943
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40347 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1071"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40428
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Cheb"@cs .
+
+ex-observation:967480980
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40428 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "771"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40533
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jablonec nad Nisou"@cs .
+
+ex-observation:967459768
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40533 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "828"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40487
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Louny"@cs .
+
+ex-observation:967438297
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40487 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "874"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40495
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Most"@cs .
+
+ex-observation:967438301
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40495 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1003"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40509
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Teplice"@cs .
+
+ex-observation:967438307
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40509 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1244"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40525
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Česká Lípa"@cs .
+
+ex-observation:967438318
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40525 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1033"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40541
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Liberec"@cs .
+
+ex-observation:967438325
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40541 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1811"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40673
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pelhřimov"@cs .
+
+ex-observation:967459828
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40673 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "720"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40703
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Blansko"@cs .
+
+ex-observation:967459839
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40703 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1170"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40584
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Náchod"@cs .
+
+ex-observation:967438339
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40584 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1054"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40720
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Brno-venkov"@cs .
+
+ex-observation:967459844
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40720 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "2529"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40606
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Trutnov"@cs .
+
+ex-observation:967481059
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40606 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1016"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40649
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústí nad Orlicí"@cs .
+
+ex-observation:967438365
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40649 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1402"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40746
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hodonín"@cs .
+
+ex-observation:967438406
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40746 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1507"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40657
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Havlíčkův Brod"@cs .
+
+ex-observation:967588264
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40657 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1005"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40193
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kol��n"@cs .
+
+ex-observation:967566551
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40193 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1113"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40665
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihlava"@cs .
+
+ex-observation:967588273
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40665 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1279"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40754
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Vyškov"@cs .
+
+ex-observation:967588312
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40754 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1046"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40762
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Znojmo"@cs .
+
+ex-observation:967588318
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40762 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1185"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40851
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Zlín"@cs .
+
+ex-observation:967566843
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40851 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1994"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40908
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Opava"@cs .
+
+ex-observation:967566876
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40908 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1866"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40258
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Praha-západ"@cs .
+
+ex-observation:967566571
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40258 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1626"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40410
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Tachov"@cs .
+
+ex-observation:967566637
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40410 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "579"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40461
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Chomutov"@cs .
+
+ex-observation:967566670
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40461 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1185"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40215
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Mělník"@cs .
+
+ex-observation:967588076
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40215 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1265"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40266
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Příbram"@cs .
+
+ex-observation:967588094
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40266 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1225"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40550
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Semily"@cs .
+
+ex-observation:967566707
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40550 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "714"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40576
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jičín"@cs .
+
+ex-observation:967566718
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40576 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "851"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40631
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Svitavy"@cs .
+
+ex-observation:967566743
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40631 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1077"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40444
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Sokolov"@cs .
+
+ex-observation:967588171
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40444 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "831"^^xsd:nonNegativeInteger .
+
+ex-czechregions:40479
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Litoměřice"@cs .
+
+ex-observation:967588187
+        rdf:type                qb:Observation ;
+        qb:dataSet              ex:czech-birth-regions ;
+        ex-dimension:refArea    ex-czechregions:40479 ;
+        ex-dimension:refPeriod  <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths   "1163"^^xsd:nonNegativeInteger .

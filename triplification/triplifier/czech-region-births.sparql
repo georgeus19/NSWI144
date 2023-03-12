@@ -1,0 +1,47 @@
+PREFIX ex: <http://example.org/opendata/czech/births/>
+PREFIX ex-czechregions: <http://example.org/opendata/czech/regions/> 
+PREFIX ex-observation: <http://example.org/opendata/czech/births/observation/>
+PREFIX ex-dimension: <http://example.org/opendata/czech/births/dimension/>
+PREFIX ex-measure: <http://example.org/opendata/czech/births/measure/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX xsd: <https://www.w3.org/2001/XMLSchema#>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX interval: <http://reference.data.gov.uk/def/intervals/>
+
+CONSTRUCT {
+    ?region a ?regionType, skos:Concept;
+        skos:inScheme <https://data.cssz.cz/resource/ruian/ConceptScheme>;
+        skos:prefLabel ?regionName .
+    
+    ?observation a qb:Observation;
+        qb:dataSet ex:czech-birth-regions;
+        ex-dimension:refArea ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-measure:liveBirths ?births .
+
+} WHERE {
+    BIND(IRI(CONCAT("http://example.org/opendata/czech/regions/", ?g)) AS ?region)
+    BIND(STRLANG(?k, "cs") AS ?regionName)
+    VALUES (?f ?regionType) {
+        ("97" <https://data.cssz.cz/ontology/ruian/Stat>)
+        ("100" <https://data.cssz.cz/ontology/ruian/Vusc>)
+        ("101" <https://data.cssz.cz/ontology/ruian/Okres>)
+        }
+
+    BIND(IRI(CONCAT("http://example.org/opendata/czech/births/observation/", ?a)) AS ?observation)
+    BIND(STRDT(?b, xsd:nonNegativeInteger) AS ?births)
+} 
+OFFSET 1
+
+
+
+
+# ex-czechregions:19 a <https://data.cssz.cz/ontology/ruian/Stat>, skos:Concept;
+#     skos:inScheme  <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+#     skos:prefLabel "Česká republika"@cs .
+
+# ex-observation:967523762 a qb:Observation;
+#     qb:dataSet  ex:czech-birth-regions ;
+#     ex-dimension:refArea  ex-czechregions:19 ;                  
+#     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+#     ex-measure:liveBirths 111793 .

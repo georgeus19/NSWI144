@@ -2,9 +2,9 @@
 
 @prefix ex-ukregions: <http://example.org/opendata/uk/regions/> . 
 
-@prefix ex-observation: <http://example.org/opendata/uk/births/observation#> . 
-@prefix ex-dimension: <http://example.org/opendata/uk/births/dimension#> . 
-@prefix ex-measure: <http://example.org/opendata/uk/births/measure#> . 
+@prefix ex-observation: <http://example.org/opendata/uk/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/uk/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/uk/births/measure/> . 
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
