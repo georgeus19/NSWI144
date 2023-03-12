@@ -1,7 +1,5 @@
 @prefix ex: <http://example.org/uk/opendata/uk/births/> . 
-
 @prefix ex-ukregions: <http://example.org/opendata/uk/regions/> . 
-
 @prefix ex-observation: <http://example.org/opendata/uk/births/observation/> . 
 @prefix ex-dimension: <http://example.org/opendata/uk/births/dimension/> . 
 @prefix ex-measure: <http://example.org/opendata/uk/births/measure/> . 
@@ -71,28 +69,28 @@ ex-ukregions:K02000001 a <https://dbpedia.org/ontology/Country>, skos:Concept;
     skos:inScheme  ex-ukregions:regionScheme ;
     skos:prefLabel "UNITED KINGDOM"@en .
 
-ex-observation:obs1a a qb:Observation;
+ex-observation:K02000001-births a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K02000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:liveBirths;
     ex-measure:liveBirths 692722 .
 
-ex-observation:obs1b a qb:Observation;
+ex-observation:K02000001-cbr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K02000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:crudeBirthRate;
     ex-measure:crudeBirthRate 10.3 .
 
-ex-observation:obs1c a qb:Observation;
+ex-observation:K02000001-gfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K02000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:generalFertilityRate;
     ex-measure:generalFertilityRate 53.6 .
 
-ex-observation:obs1d a qb:Observation;
+ex-observation:K02000001-tfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K02000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
@@ -103,28 +101,28 @@ ex-ukregions:K04000001J99000001 a <https://dbpedia.org/ontology/Country>, skos:C
     skos:inScheme  ex-ukregions:regionScheme ;
     skos:prefLabel "ENGLAND, WALES AND ELSEWHERE"@en .
 
-ex-observation:obs2a a qb:Observation;
+ex-observation:K04000001J99000001-births a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K04000001J99000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:liveBirths;
     ex-measure:liveBirths 624828 .
 
-ex-observation:obs2b a qb:Observation;
+ex-observation:K04000001J99000001-cbr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K04000001J99000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:crudeBirthRate;
     ex-measure:crudeBirthRate 10.5 .
 
-ex-observation:obs2c a qb:Observation;
+ex-observation:K04000001J99000001-gfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K04000001J99000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:generalFertilityRate;
     ex-measure:generalFertilityRate 54.1 .
 
-ex-observation:obs2d a qb:Observation;
+ex-observation:K04000001J99000001-tfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:K04000001J99000001 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
@@ -135,28 +133,28 @@ ex-ukregions:E06000047 a <https://data.ordnancesurvey.co.uk/ontology/admingeo/Un
     skos:inScheme  ex-ukregions:regionScheme ;
     skos:prefLabel "County Durham"@en .
 
-ex-observation:obs3a a qb:Observation;
+ex-observation:E06000047-births a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000047 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:liveBirths;
     ex-measure:liveBirths 4592 .
 
-ex-observation:obs3b a qb:Observation;
+ex-observation:E06000047-cbr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000047 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:crudeBirthRate;
     ex-measure:crudeBirthRate 8.8 .
 
-ex-observation:obs3c a qb:Observation;
+ex-observation:E06000047-gfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000047 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:generalFertilityRate;
     ex-measure:generalFertilityRate 49.2 .
 
-ex-observation:obs3d a qb:Observation;
+ex-observation:E06000047-tfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000047 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
@@ -167,28 +165,28 @@ ex-ukregions:E06000005 a <https://data.ordnancesurvey.co.uk/ontology/admingeo/Un
     skos:inScheme  ex-ukregions:regionScheme ;
     skos:prefLabel "Darlington"@en .
 
-ex-observation:obs3a a qb:Observation;
+ex-observation:E06000005-births a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000005 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:liveBirths;
     ex-measure:liveBirths 1047 .
 
-ex-observation:obs3b a qb:Observation;
+ex-observation:E06000005-cbr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000005 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:crudeBirthRate;
     ex-measure:crudeBirthRate 9.7 .
 
-ex-observation:obs3c a qb:Observation;
+ex-observation:E06000005-gfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000005 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
     ex-dimension:measureType ex-measure:generalFertilityRate;
     ex-measure:generalFertilityRate 54.5 .
 
-ex-observation:obs3d a qb:Observation;
+ex-observation:E06000005-tfr a qb:Observation;
     qb:dataSet  ex:uk-birth-regions ;
     ex-dimension:refArea  ex-ukregions:E06000005 ;                  
     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;

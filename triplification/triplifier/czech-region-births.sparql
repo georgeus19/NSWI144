@@ -26,22 +26,9 @@ CONSTRUCT {
         ("97" <https://data.cssz.cz/ontology/ruian/Stat>)
         ("100" <https://data.cssz.cz/ontology/ruian/Vusc>)
         ("101" <https://data.cssz.cz/ontology/ruian/Okres>)
-        }
+    }
 
     BIND(IRI(CONCAT("http://example.org/opendata/czech/births/observation/", ?a)) AS ?observation)
     BIND(STRDT(?b, xsd:nonNegativeInteger) AS ?births)
 } 
 OFFSET 1
-
-
-
-
-# ex-czechregions:19 a <https://data.cssz.cz/ontology/ruian/Stat>, skos:Concept;
-#     skos:inScheme  <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
-#     skos:prefLabel "Česká republika"@cs .
-
-# ex-observation:967523762 a qb:Observation;
-#     qb:dataSet  ex:czech-birth-regions ;
-#     ex-dimension:refArea  ex-czechregions:19 ;                  
-#     ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
-#     ex-measure:liveBirths 111793 .

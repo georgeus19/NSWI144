@@ -1,6 +1,6 @@
 Area of usual residence – Code,Area of usual residence – Name,Area of usual residence – Geography,Number of live births – Total,Number of live births – Male,Number of live births – Female,Live births - within marriage or civil partnership,Live births - outside marriage or civil partnership,Live births - joint registrations same address,Live births - joint registrations different address,Live births - sole registrations,"Crude Birth Rate (CBR): - all births per 1,000 population of all ages","General Fertility Rate (GFR): - all live births per 1,000 women aged 15 to 44",Total Fertility Rate (TFR),Percentage of live births - outside marriage or civil partnership,Percentage of live births under 2.5kg birthweight,Number of maternities,"Maternity Rate (Maternities per 1,000 women aged 15 to 44)",Number of maternities which took place at home,Percentage of maternities which took place at home
 K02000001,UNITED KINGDOM,Country,692722,355006,337716,336705,356017,[x],[x],[x],10.3,53.6,1.54,51.4,[x],[x],[x],[x],[x]
-"K04000001, J99000001","ENGLAND, WALES AND ELSEWHERE",Country,624828,320122,304706,304115,320713,228347,63356,29010,10.5,54.1,1.55,51.3,6.4,618848,53.6,15524,2.5
+K04000001J99000001,"ENGLAND, WALES AND ELSEWHERE",Country,624828,320122,304706,304115,320713,228347,63356,29010,10.5,54.1,1.55,51.3,6.4,618848,53.6,15524,2.5
 K04000001,ENGLAND AND WALES,Country,624729,320069,304660,304054,320675,228324,63347,29004,10.5,54.1,1.55,51.3,6.4,618735,53.6,15524,2.5
 E92000001,ENGLAND,Country,595948,305288,290660,293271,302677,215491,59647,27539,10.5,54.3,1.56,50.8,6.4,590211,53.7,14485,2.5
 E12000001,NORTH EAST,Region,25153,12889,12264,9103,16050,10699,3763,1588,9.5,51.9,1.52,63.8,6.5,24886,51.4,264,1.1
@@ -323,7 +323,7 @@ E12000009,SOUTH WEST,Region,52278,26865,25413,24785,27493,21593,3856,2044,9.2,51
 E06000022,Bath and North East Somerset,Unitary Authority,1777,890,887,937,840,652,125,63,9.2,45.5,1.47,47.3,5.2,1752,44.9,61,3.5
 E06000058,"Bournemouth, Christchurch and Poole",Unitary Authority,3668,1885,1783,1800,1868,1470,241,157,9.2,48.2,1.41,50.9,3.2,3628,47.7,136,3.7
 E06000023,"Bristol, City of",Unitary Authority,5430,2771,2659,2722,2708,1894,521,293,11.5,46.5,1.32,49.9,4.9,5386,46.2,133,2.5
-"E06000052, E06000053",Cornwall and Isles of Scilly,Unitary Authority,4834,2514,2320,1989,2845,2329,335,181,8.4,52.6,1.57,58.9,4.2,4772,52,243,5.1
+E06000052E06000053,Cornwall and Isles of Scilly,Unitary Authority,4834,2514,2320,1989,2845,2329,335,181,8.4,52.6,1.57,58.9,4.2,4772,52,243,5.1
 E06000059,Dorset,Unitary Authority,2755,1398,1357,1278,1477,1197,171,109,7.2,51.6,1.57,53.6,5.6,2728,51.1,150,5.5
 E06000024,North Somerset,Unitary Authority,2071,1025,1046,996,1075,869,136,70,9.5,57.6,1.71,51.9,3.3,2046,56.9,42,2.1
 E06000026,Plymouth,Unitary Authority,2556,1314,1242,960,1596,1165,281,150,9.7,47.9,1.39,62.4,6.1,2534,47.5,68,2.7

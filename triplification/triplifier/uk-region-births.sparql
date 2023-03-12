@@ -1,0 +1,69 @@
+PREFIX ex: <http://example.org/uk/opendata/uk/births/> 
+PREFIX ex-ukregions: <http://example.org/opendata/uk/regions/> 
+PREFIX ex-observation: <http://example.org/opendata/uk/births/observation/>
+PREFIX ex-dimension: <http://example.org/opendata/uk/births/dimension/> 
+PREFIX ex-measure: <http://example.org/opendata/uk/births/measure/> 
+PREFIX qb: <http://purl.org/linked-data/cube#> 
+PREFIX xsd: <https://www.w3.org/2001/XMLSchema#> 
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
+PREFIX interval: <http://reference.data.gov.uk/def/intervals/> 
+
+
+CONSTRUCT {
+    ?region a ?regionType, skos:Concept;
+        skos:inScheme ex-ukregions:regionScheme;
+        skos:prefLabel ?regionName .
+    
+    ?observationBirths a qb:Observation;
+        qb:dataSet  ex:uk-birth-regions ;
+        ex-dimension:refArea  ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:liveBirths;
+        ex-measure:liveBirths ?births .
+
+    ?observationCbr a qb:Observation;
+        qb:dataSet  ex:uk-birth-regions ;
+        ex-dimension:refArea ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:crudeBirthRate;
+        ex-measure:crudeBirthRate ?cbr .
+
+    ?observationGfr a qb:Observation;
+        qb:dataSet ex:uk-birth-regions ;
+        ex-dimension:refArea ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:generalFertilityRate;
+        ex-measure:generalFertilityRate ?gfr .
+
+    ?observationTfr a qb:Observation;
+        qb:dataSet ex:uk-birth-regions ;
+        ex-dimension:refArea ?region ;                  
+        ex-dimension:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType ex-measure:totalFertilityRate;
+        ex-measure:totalFertilityRate ?tfr .
+} WHERE {
+    BIND(IRI(CONCAT("http://example.org/opendata/uk/regions/", ?a)) AS ?region)
+    BIND(STRLANG(?b, "en") AS ?regionName)
+    VALUES (?c ?regionType) {
+        ("Country" <https://dbpedia.org/ontology/Country>)
+        ("Unitary Authority" <https://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority>)
+        ("Metropolitan County" <http://example.org/opendata/uk/regions/MetropolitanCounty>)
+        ("Metropolitan District" <https://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict>)
+        ("Non-metropolitan District" <https://data.ordnancesurvey.co.uk/ontology/admingeo/District>)
+        ("London Borough" <https://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough>)
+        ("County" <https://data.ordnancesurvey.co.uk/ontology/admingeo/County>)
+        ("Council Area" <http://example.org/opendata/uk/regions/CouncilArea>)
+        ("Local Government District" <http://example.org/opendata/uk/regions/LocalGovernmentDistrict>)
+    }
+
+    BIND(IRI(CONCAT("http://example.org/opendata/uk/births/observation/", ?a, "-births")) AS ?observationBirths)
+    BIND(IRI(CONCAT("http://example.org/opendata/uk/births/observation/", ?a, "-cbr")) AS ?observationCbr)
+    BIND(IRI(CONCAT("http://example.org/opendata/uk/births/observation/", ?a, "-gfr")) AS ?observationGfr)
+    BIND(IRI(CONCAT("http://example.org/opendata/uk/births/observation/", ?a, "-tfr")) AS ?observationTfr)
+    BIND(STRDT(?d, xsd:nonNegativeInteger) AS ?births)
+    BIND(STRDT(?l, xsd:decimal) AS ?cbr)
+    BIND(STRDT(?m, xsd:decimal) AS ?gfr)
+    BIND(STRDT(?n, xsd:decimal) AS ?tfr)
+}
+OFFSET 1
+
