@@ -8,7 +8,6 @@ PREFIX xsd: <https://www.w3.org/2001/XMLSchema#>
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
 PREFIX interval: <http://reference.data.gov.uk/def/intervals/> 
 
-
 CONSTRUCT {
     ?region a ?regionType, skos:Concept;
         skos:inScheme ex-ukregions:regionScheme;
@@ -66,4 +65,3 @@ CONSTRUCT {
     BIND(STRDT(?n, xsd:decimal) AS ?tfr)
 }
 OFFSET 1
-

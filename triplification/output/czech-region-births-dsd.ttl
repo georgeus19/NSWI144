@@ -1,0 +1,41 @@
+@prefix ex: <http://example.org/opendata/czech/births/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/births/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/births/measure/> . 
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex-dimension:refArea a qb:DimensionProperty, qb:CodedProperty ;
+    rdfs:label "reference area"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    qb:codeList <https://data.cssz.cz/resource/ruian/ConceptScheme> .
+
+ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty; 
+    rdfs:label "reference period"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refPeriod; 
+    rdfs:range interval:Interval; 
+    qb:concept sdmx-concept:refPeriod .
+
+ex-measure:liveBirths a rdf:Property, qb:MeasureProperty;
+    rdfs:label "live births"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:nonNegativeInteger . 
+
+ex:dsd-czech-birth-regions a qb:DataStructureDefinition;
+    qb:component [ qb:dimension ex-dimension:refArea;         qb:order 1 ];
+    qb:component [ qb:dimension ex-dimension:refPeriod;       qb:order 2 ];
+    qb:component [ qb:measure ex-measure:liveBirths];
+    qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired true;
+                   qb:componentAttachment qb:DataSet; ] .
+
+ex:czech-birth-regions a qb:DataSet;
+    rdfs:label "live births per region"@en;
+    rdfs:comment "Live births values for regions in the Czech Republic."@en;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/ontology/numberOfPersonBornInPlace> ;
+    qb:structure ex:dsd-czech-birth-regions .

@@ -1,0 +1,49 @@
+@prefix ex: <http://example.org/opendata/czech/people/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/people/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/people/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/people/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/people/measure/> . 
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex-dimension:refArea a qb:DimensionProperty, qb:CodedProperty ;
+    rdfs:label "reference area"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    qb:codeList <https://data.cssz.cz/resource/ruian/ConceptScheme> .
+
+ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty; 
+    rdfs:label "reference period"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refPeriod; 
+    rdfs:range interval:Interval; 
+    qb:concept sdmx-concept:refPeriod .
+
+ex-measure:numberOfPeople a rdf:Property, qb:MeasureProperty;
+    rdfs:label "number of people"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Population>;
+    rdfs:range xsd:nonNegativeInteger . 
+
+ex-measure:averageAge a rdf:Property, qb:MeasureProperty;
+    rdfs:label "number of people"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Year>;
+    rdfs:range xsd:decimal . 
+
+ex:dsd-czech-people-regions a qb:DataStructureDefinition;
+    qb:component [ qb:dimension ex-dimension:refArea;         qb:order 1 ];
+    qb:component [ qb:dimension ex-dimension:refPeriod;       qb:order 2 ];
+    qb:component [ qb:dimension qb:measureType;       qb:order 3 ];
+    qb:component [ qb:measure ex-measure:numberOfPeople ];
+    qb:component [ qb:measure ex-measure:averageAge ];
+    qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired true;
+                   qb:componentAttachment qb:MeasureProperty; ] .
+
+ex:czech-people-regions a qb:DataSet;
+    rdfs:label "number of people per region"@en;
+    rdfs:comment "Number of people living in various regions in the Czech Republic."@en;
+    qb:structure ex:dsd-czech-people-regions .

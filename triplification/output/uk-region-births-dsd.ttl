@@ -1,0 +1,79 @@
+@prefix ex: <http://example.org/uk/opendata/uk/births/> . 
+@prefix ex-ukregions: <http://example.org/opendata/uk/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/uk/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/uk/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/uk/births/measure/> . 
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex-ukregions:regionScheme a skos:ConceptScheme ;
+    skos:note       "Administrative regions of uk."@en ;
+    skos:prefLabel  "Administrative region of uk"@en .
+
+ex-dimension:refArea a qb:DimensionProperty, qb:CodedProperty ;
+    rdfs:label "reference area"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    qb:codeList ex-ukregions:regionScheme .
+
+ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty; 
+    rdfs:label "reference period"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refPeriod; 
+    rdfs:range interval:Interval; 
+    qb:concept sdmx-concept:refPeriod .
+
+ex-measure:liveBirths a rdf:Property, qb:MeasureProperty;
+    rdfs:label "live births"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/ontology/numberOfPersonBornInPlace>;
+    rdfs:range xsd:nonNegativeInteger . 
+
+ex-measure:crudeBirthRate a rdf:Property, qb:MeasureProperty;
+    rdfs:label "crude birth rate"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Birth_rate>;
+    rdfs:range xsd:decimal . 
+
+ex-measure:generalFertilityRate a rdf:Property, qb:MeasureProperty;
+    rdfs:label "general fertility rate"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Rate_(mathematics)>;
+    rdfs:range xsd:decimal . 
+
+ex-measure:totalFertilityRate a rdf:Property, qb:MeasureProperty;
+    rdfs:label "total fertility rate"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Total_fertility_rate>;
+    rdfs:range xsd:decimal . 
+
+ex:dsd-uk-birth-regions a qb:DataStructureDefinition;
+    qb:component [ qb:dimension ex-dimension:refArea;         qb:order 1 ];
+    qb:component [ qb:dimension ex-dimension:refPeriod;       qb:order 2 ];
+    qb:component [ qb:dimension qb:measureType;       qb:order 3 ];
+    qb:component [ qb:measure ex-measure:liveBirths];
+    qb:component [ qb:measure ex-measure:crudeBirthRate];
+    qb:component [ qb:measure ex-measure:generalFertilityRate];
+    qb:component [ qb:measure ex-measure:totalFertilityRate];
+    qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired true;
+                   qb:componentAttachment qb:MeasureProperty; ] .
+
+ex:uk-birth-regions a qb:DataSet;
+    rdfs:label "live births per region"@en;
+    rdfs:comment "Live births values for regions in the United Kingdom."@en;
+    qb:structure ex:dsd-uk-birth-regions .
+
+ex-ukregions:CouncilArea a rdfs:Class;
+    rdfs:label "council area"@en;
+    rdfs:comment "Council Area in United Kingdom"@en .
+
+ex-ukregions:LocalGovernmentDistrict a rdfs:Class;
+    rdfs:label "local government district"@en;
+    rdfs:comment "Local Government District in United Kingdom"@en .
+
+ex-ukregions:MetropolitanCounty a rdfs:Class;
+    rdfs:label "metropolitan county"@en;
+    rdfs:comment "Metropolitan County in United Kingdom"@en .
