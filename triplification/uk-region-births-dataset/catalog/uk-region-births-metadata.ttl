@@ -28,7 +28,7 @@ ex-metadata:catalog a dcat:Catalog ;
 # Example records
 ex-metadata:record a dcat:CatalogRecord ;
     foaf:primaryTopic ex:uk-birth-regions ;
-    dcterms:modified "2021-01-19"^^xsd:date .
+    dcterms:modified "2023-01-19"^^xsd:date .
 
 # DCAT
 # Popisuji muj vznikly dataset (casti ktere jsem ingoroval beru jako ze tam nejsou).
@@ -63,7 +63,7 @@ ex-metadata:ttl-distribution a dcat:Distribution ;
 # stejna uri datasetu -> reusuji ze shora dcterms:title, dcterms:description, dcterms:publisher...
 ex:uk-birth-regions a void:Dataset ;
     void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-agg.ttl> ;
-    dcterms:modified "2021-01-19"^^xsd:date ;
+    dcterms:modified "2023-01-19"^^xsd:date ;
     void:exampleResource ex-observation:K02000001-births ;
     foaf:homepage <https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales> ;
     dcterms:subject <http://dbpedia.org/resource/Birth> ;
