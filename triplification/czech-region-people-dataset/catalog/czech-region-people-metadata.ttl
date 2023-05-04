@@ -3,7 +3,7 @@
 @prefix ex-observation: <http://example.org/opendata/czech/people/observation/> . 
 @prefix ex-dimension: <http://example.org/opendata/czech/people/dimension/> . 
 @prefix ex-measure: <http://example.org/opendata/czech/people/measure/> . 
-@prefix ex-metadata: <http://example.org/opendata/czech/people/metadata> . 
+@prefix ex-metadata: <http://example.org/opendata/czech/people/metadata/> . 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -60,10 +60,10 @@ ex-metadata:ttl-distribution a dcat:Distribution ;
 
 # VOID
 # stejna uri datasetu -> reusuji ze shora dcterms:title, dcterms:description, dcterms:publisher...
-ex:czech-birth-regions a void:Dataset ;
+ex:czech-people-regions a void:Dataset ;
     void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people-agg.ttl> ;
     dcterms:modified "2021-04-29"^^xsd:date ;
-    void:exampleResource ex-czechregions:CZ0, ex:czech-birth-regions ;
+    void:exampleResource ex-czechregions:CZ0 ;
     foaf:homepage <https://www.czso.cz/csu/czso/pocet-obyvatel-v-obcich-k-112022> ;
     dcterms:subject <https://dbpedia.org/page/Population> ;
     dcterms:source 

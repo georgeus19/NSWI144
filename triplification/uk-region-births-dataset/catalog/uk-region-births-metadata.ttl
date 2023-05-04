@@ -1,0 +1,74 @@
+@prefix ex: <http://example.org/uk/opendata/uk/births/> . 
+@prefix ex-ukregions: <http://example.org/opendata/uk/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/uk/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/uk/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/uk/births/measure/> . 
+@prefix ex-metadata: <http://example.org/uk/opendata/uk/births/metadata/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+# Example Catalog
+ex-metadata:catalog a dcat:Catalog ;
+    dcterms:title "Example catalog for births in the UK"@en ;
+    dcterms:description "Example catalog for births in the UK"@en ;
+    dcterms:publisher ex-metadata:publisher ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/GBR> ;
+    dcat:dataset ex:uk-birth-regions ; 
+    dcat:record ex-metadata:record ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> .
+
+# Example records
+ex-metadata:record a dcat:CatalogRecord ;
+    foaf:primaryTopic ex:uk-birth-regions ;
+    dcterms:modified "2021-01-19"^^xsd:date .
+
+# DCAT
+# Popisuji muj vznikly dataset (casti ktere jsem ingoroval beru jako ze tam nejsou).
+# Beru to tak, ze narodni statisticky UK urad publikuje muj dataset, jinak nevim,
+# jak vyplnit publisher (kdyz clovek publikeju jen transformovany dataset muze byt publisher??) a periodicitu...
+ex:uk-birth-regions a dcat:Dataset ;
+    dcterms:title "Birth characteristics for regions in the United Kingdom."@en ;
+    dcterms:description "Birth characteristics for regions in the United Kingdom."@en ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/GBR> ;
+    dcterms:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+    dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+    dcterms:publisher <https://www.ons.gov.uk/> ;
+    dcat:distribution ex-metadata:xlsx-distribution, ex-metadata:ttl-distribution ;
+    dcat:landingPage <https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales> .
+
+ex-metadata:xlsx-distribution a dcat:Distribution ;
+    dcterms:title "Birth characteristics for regions in the United Kingdom."@en ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/XLSX> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet> ;
+    dcat:accessURL <https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales/2021/birthcharacteristics2021workbooknew.xlsx> ;
+    dcat:downloadURL <https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales/2021/birthcharacteristics2021workbooknew.xlsx> .
+
+ex-metadata:ttl-distribution a dcat:Distribution ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:title "Birth characteristics for regions in the United Kingdom."@en ;
+    dcat:accessURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-agg.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-agg.ttl> .
+
+# VOID
+# stejna uri datasetu -> reusuji ze shora dcterms:title, dcterms:description, dcterms:publisher...
+ex:uk-birth-regions a void:Dataset ;
+    void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-agg.ttl> ;
+    dcterms:modified "2021-01-19"^^xsd:date ;
+    void:exampleResource ex-observation:K02000001-births ;
+    foaf:homepage <https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales> ;
+    dcterms:subject <http://dbpedia.org/resource/Birth> ;
+    dcterms:source 
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births.ttl>,
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-dsd.ttl> ;
+    void:uriSpace ex: ;
+    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf:, <http://dbpedia.org/resource/> .

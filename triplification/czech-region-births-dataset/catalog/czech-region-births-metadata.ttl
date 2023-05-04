@@ -63,7 +63,7 @@ ex-metadata:ttl-distribution a dcat:Distribution ;
 ex:czech-birth-regions a void:Dataset ;
     void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-births-dataset/output/czech-region-births-agg.ttl> ;
     dcterms:modified "2021-04-30"^^xsd:date ;
-    void:exampleResource ex-observation:967523762, ex:czech-birth-regions ;
+    void:exampleResource ex-observation:967523762 ;
     foaf:homepage <https://www.czso.cz/csu/czso/pohyb-obyvatel-za-cr-kraje-okresy-so-orp-a-obce> ;
     dcterms:subject <http://dbpedia.org/resource/Birth> ;
     dcterms:source 
