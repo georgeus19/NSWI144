@@ -1,0 +1,73 @@
+@prefix ex: <http://example.org/opendata/czech/people/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/people/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/people/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/people/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/people/measure/> . 
+@prefix ex-metadata: <http://example.org/opendata/czech/people/metadata> . 
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+# Example Catalog
+ex-metadata:catalog a dcat:Catalog ;
+    dcterms:title "Example catalog for number of people in regions in Czech Republic."@en ;
+    dcterms:description "Example catalog for number of people in regions in Czech Republic."@en ;
+    dcterms:publisher ex-metadata:publisher ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
+    dcat:dataset ex:czech-people-regions ; 
+    dcat:record ex-metadata:record ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> .
+
+# Example records
+ex-metadata:record a dcat:CatalogRecord ;
+    foaf:primaryTopic ex:czech-people-regions ;
+    dcterms:modified "2021-04-29"^^xsd:date .
+
+# DCAT
+# Popisuji muj vznikly dataset (casti ktere jsem ignoroval beru jako, ze tam nejsou).
+# Beru to tak, ze CZSO publikuje muj dataset, jinak nevim, jak vyplnit publisher (kdyz clovek publikeju jen transformovany dataset, muze byt publisher??) a periodicitu...
+ex:czech-people-regions a dcat:Dataset ;
+    dcterms:title "Number of people in regions in Czech Republic."@en ;
+    dcterms:description "Number of people in regions in Czech Republic."@en ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
+    dcterms:language <http://publications.europa.eu/resource/authority/language/CES> ;
+    dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+    dcterms:publisher <https://www.czso.cz/> ;
+    dcat:distribution ex-metadata:xlsx-distribution, ex-metadata:ttl-distribution ;
+    dcat:landingPage <https://www.czso.cz/csu/czso/pocet-obyvatel-v-obcich-k-112022> .
+
+ex-metadata:xlsx-distribution a dcat:Distribution ;
+    dcterms:title "Number of people in regions in Czech Republic."@en ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/XLSX> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet> ;
+    dcat:accessURL <https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2> ;
+    dcat:downloadURL <https://www.czso.cz/documents/10180/165603907/13007221n01.xlsx/65344c95-18ed-4020-a866-868ba56e52e5?version=1.2> .
+
+ex-metadata:ttl-distribution a dcat:Distribution ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:title "Number of people in regions in Czech Republic."@en ;
+    dcat:accessURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people-agg.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people-agg.ttl> .
+
+# VOID
+# stejna uri datasetu -> reusuji ze shora dcterms:title, dcterms:description, dcterms:publisher...
+ex:czech-birth-regions a void:Dataset ;
+    void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people-agg.ttl> ;
+    dcterms:modified "2021-04-29"^^xsd:date ;
+    void:exampleResource ex-czechregions:CZ0, ex:czech-birth-regions ;
+    foaf:homepage <https://www.czso.cz/csu/czso/pocet-obyvatel-v-obcich-k-112022> ;
+    dcterms:subject <https://dbpedia.org/page/Population> ;
+    dcterms:source 
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people.ttl>,
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-people-dataset/output/czech-region-people-dsd.ttl> ;
+    void:uriSpace ex: ;
+    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf:, <http://dbpedia.org/resource/>.

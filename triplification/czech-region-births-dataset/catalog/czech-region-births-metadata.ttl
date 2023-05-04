@@ -70,4 +70,4 @@ ex:czech-birth-regions a void:Dataset ;
         <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-births-dataset/output/czech-region-births.ttl>,
         <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-births-dataset/output/czech-region-births-dsd.ttl> ;
     void:uriSpace ex: ;
-    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf: .
+    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf:, <http://dbpedia.org/resource/> .
