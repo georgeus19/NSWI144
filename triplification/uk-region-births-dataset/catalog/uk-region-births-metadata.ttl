@@ -14,6 +14,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix void: <http://rdfs.org/ns/void#> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 
 # Example Catalog
 ex-metadata:catalog a dcat:Catalog ;
@@ -71,4 +75,4 @@ ex:uk-birth-regions a void:Dataset ;
         <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births.ttl>,
         <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/uk-region-births-dataset/output/uk-region-births-dsd.ttl> ;
     void:uriSpace ex: ;
-    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf:, <http://dbpedia.org/resource/> .
+    void:vocabulary qb:, skos:, xsd:, interval:, rdfs:, rdf:, sdmx-concept:, sdmx-dimension:, sdmx-attribute:, sdmx-measure:, <http://dbpedia.org/resource/> .

@@ -9,6 +9,12 @@
 @prefix interval: <http://reference.data.gov.uk/def/intervals/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+
+# Aggregated version containing the raw data from uk-region-births.ttl and the structure from uk-region-births-dsd.ttl
 
 ex-ukregions:regionScheme a skos:ConceptScheme ;
     skos:note       "Administrative regions of uk."@en ;
