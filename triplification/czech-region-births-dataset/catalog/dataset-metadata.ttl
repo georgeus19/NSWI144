@@ -1,0 +1,54 @@
+@prefix ex: <http://example.org/opendata/czech/births/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/births/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/births/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/births/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/births/measure/> . 
+@prefix ex-metadata: <http://example.org/opendata/czech/births/metadata/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex-metadata:catalog a dcat:Catalog ;
+    dcterms:title "Example catalog for live births in Czech Republic"@en ;
+    dcterms:description "Example catalog for live births in Czech Republic"@en ;
+    dcterms:publisher ex-metadata:publisher ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
+    dcat:dataset ex:czech-birth-regions ; 
+    dcat:record ex-metadata:dcat-record .
+
+ex-metadata:dcat-record a dcat:CatalogRecord ;
+    foaf:primaryTopic ex:czech-birth-regions ;
+    dcterms:modified "2021-04-30"^^xsd:date .
+
+# Popisuji muj vznikly dataset (casti ktere jsem ingoroval beru jako ze tam nejsou).
+# Beru to tak, ze CZSO publikuje muj dataset, jinak nevim, jak vyplnit publisher a periodicitu...
+ex:czech-birth-regions a dcat:Dataset ;
+    dcterms:title "Live births values for regions in the Czech Republic."@en ;
+    dcterms:description "Live births values for regions in the Czech Republic."@en ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
+    dcterms:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+    dcterms:publisher <https://www.czso.cz/> ;
+    dcat:distribution ex-metadata:csv-distribution ,
+        ex-metadata:ttl-distribution ;
+    dcat:landingPage <https://www.czso.cz/csu/czso/pohyb-obyvatel-za-cr-kraje-okresy-so-orp-a-obce> .
+
+ex-metadata:csv-distribution a dcat:Distribution ;
+    dcterms:title "Live births values for regions in the Czech Republic in csv."@en ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:accessURL <https://www.czso.cz/documents/10180/184344914/130141-22data2021.csv/a835923a-9dcc-4b23-a609-cad06188e4b4?version=1.1> ;
+    dcat:downloadURL <https://www.czso.cz/documents/10180/184344914/130141-22data2021.csv/a835923a-9dcc-4b23-a609-cad06188e4b4?version=1.1> .
+
+ex-metadata:ttl-distribution a dcat:Distribution ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:title "Live births values for regions in the Czech Republic in turtle."@en ;
+    dcat:accessURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-births-dataset/output/czech-region-births-agg.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/georgeus19/NSWI144/main/triplification/czech-region-births-dataset/output/czech-region-births-agg.ttl> .
