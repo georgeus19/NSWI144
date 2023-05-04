@@ -28,7 +28,7 @@ ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty;
 ex-measure:liveBirths a rdf:Property, qb:MeasureProperty;
     rdfs:label "live births"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
-    sdmx-attribute:unitMeasure <https://dbpedia.org/ontology/numberOfPersonBornInPlace>;
+    sdmx-attribute:unitMeasure <http://dbpedia.org/resource/1>;
     rdfs:range xsd:nonNegativeInteger . 
 
 ex-measure:crudeBirthRate a rdf:Property, qb:MeasureProperty;

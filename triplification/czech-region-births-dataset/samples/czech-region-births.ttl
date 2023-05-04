@@ -37,7 +37,7 @@ ex:dsd-czech-birth-regions a qb:DataStructureDefinition;
 ex:czech-birth-regions a qb:DataSet;
     rdfs:label "live births per region"@en;
     rdfs:comment "Live births values for regions in the Czech Republic."@en;
-    sdmx-attribute:unitMeasure <https://dbpedia.org/ontology/numberOfPersonBornInPlace> ;
+    sdmx-attribute:unitMeasure <http://dbpedia.org/resource/1> ;
     qb:structure ex:dsd-czech-birth-regions .
 
 ex-czechregions:19 a <https://data.cssz.cz/ontology/ruian/Stat>, skos:Concept;
