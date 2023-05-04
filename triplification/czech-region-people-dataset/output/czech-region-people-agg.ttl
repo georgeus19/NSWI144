@@ -1,0 +1,2051 @@
+@prefix ex: <http://example.org/opendata/czech/people/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/people/regions/> . 
+@prefix ex-observation: <http://example.org/opendata/czech/people/observation/> . 
+@prefix ex-dimension: <http://example.org/opendata/czech/people/dimension/> . 
+@prefix ex-measure: <http://example.org/opendata/czech/people/measure/> . 
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex-dimension:refArea a qb:DimensionProperty, qb:CodedProperty ;
+    rdfs:label "reference area"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    qb:codeList <https://data.cssz.cz/resource/ruian/ConceptScheme> .
+
+ex-dimension:refPeriod a rdf:Property, qb:DimensionProperty; 
+    rdfs:label "reference period"@en; 
+    rdfs:subPropertyOf sdmx-dimension:refPeriod; 
+    rdfs:range interval:Interval; 
+    qb:concept sdmx-concept:refPeriod .
+
+ex-measure:numberOfPeople a rdf:Property, qb:MeasureProperty;
+    rdfs:label "number of people"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Population>;
+    rdfs:range xsd:nonNegativeInteger . 
+
+ex-measure:averageAge a rdf:Property, qb:MeasureProperty;
+    rdfs:label "number of people"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    sdmx-attribute:unitMeasure <https://dbpedia.org/page/Year>;
+    rdfs:range xsd:decimal . 
+
+ex:dsd-czech-people-regions a qb:DataStructureDefinition;
+    qb:component [ qb:dimension ex-dimension:refArea;         qb:order 1 ];
+    qb:component [ qb:dimension ex-dimension:refPeriod;       qb:order 2 ];
+    qb:component [ qb:dimension qb:measureType;       qb:order 3 ];
+    qb:component [ qb:measure ex-measure:numberOfPeople ];
+    qb:component [ qb:measure ex-measure:averageAge ];
+    qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired true;
+                   qb:componentAttachment qb:MeasureProperty; ] .
+
+ex:czech-people-regions a qb:DataSet;
+    rdfs:label "number of people per region"@en;
+    rdfs:comment "Number of people living in various regions in the Czech Republic."@en;
+    qb:structure ex:dsd-czech-people-regions .
+
+ex-czechregions:CZ0  rdf:type  <https://data.cssz.cz/ontology/ruian/Stat> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Česko"@cs .
+
+ex-observation:CZ0-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "10494836"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ010
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hlavní město Praha"@cs .
+
+ex-observation:CZ010-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ010 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "1259413"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ010-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ010 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.4"^^xsd:decimal .
+
+ex-czechregions:CZ020
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Středočeský kraj"@cs .
+
+ex-observation:CZ020-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ020 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "1372588"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ020-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ020 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.5"^^xsd:decimal .
+
+ex-czechregions:CZ031
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihočeský kraj"@cs .
+
+ex-observation:CZ031-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ031 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "636422"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ031-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ031 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.1"^^xsd:decimal .
+
+ex-czechregions:CZ032
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeňský kraj"@cs .
+
+ex-observation:CZ032-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ032 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "576358"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ032-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ032 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.1"^^xsd:decimal .
+
+ex-czechregions:CZ041
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karlovarský kraj"@cs .
+
+ex-observation:CZ041-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ041 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "285020"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ041-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ041 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.5"^^xsd:decimal .
+
+ex-czechregions:CZ042
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústecký kraj"@cs .
+
+ex-observation:CZ042-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ042 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "801586"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ042-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ042 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ051
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Liberecký kraj"@cs .
+
+ex-observation:CZ051-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ051 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "437522"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ051-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ051 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ052
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Královéhradecký kraj"@cs .
+
+ex-observation:CZ052-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ052 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "544205"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ052-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ052 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.5"^^xsd:decimal .
+
+ex-czechregions:CZ053
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pardubický kraj"@cs .
+
+ex-observation:CZ053-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ053 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "514413"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ053-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ053 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ063
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kraj Vysočina"@cs .
+
+ex-observation:CZ063-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ063 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "504004"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ063-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ063 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.1"^^xsd:decimal .
+
+ex-czechregions:CZ064
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihomoravský kraj"@cs .
+
+ex-observation:CZ064-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ064 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "1181216"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ064-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ064 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ071
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Olomoucký kraj"@cs .
+
+ex-observation:CZ071-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ071 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "624931"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ071-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ071 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ072
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Zlínský kraj"@cs .
+
+ex-observation:CZ072-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ072 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "573718"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ072-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ072 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.5"^^xsd:decimal .
+
+ex-czechregions:CZ080
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Vusc> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Moravskoslezský kraj"@cs .
+
+ex-observation:CZ080-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ080 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "1183440"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ080-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ080 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ0201
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Benešov"@cs .
+
+ex-observation:CZ0201-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0201 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "98766"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0201-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0201 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0202
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Beroun"@cs .
+
+ex-observation:CZ0202-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0202 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "94912"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0202-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0202 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.4"^^xsd:decimal .
+
+ex-czechregions:CZ0203
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kladno"@cs .
+
+ex-observation:CZ0203-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0203 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "164149"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0203-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0203 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.2"^^xsd:decimal .
+
+ex-czechregions:CZ0204
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kolín"@cs .
+
+ex-observation:CZ0204-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0204 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "102628"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0204-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0204 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42"^^xsd:decimal .
+
+ex-czechregions:CZ0205
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kutná Hora"@cs .
+
+ex-observation:CZ0205-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0205 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "75317"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0205-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0205 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.4"^^xsd:decimal .
+
+ex-czechregions:CZ0206
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Mělník"@cs .
+
+ex-observation:CZ0206-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0206 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "108477"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0206-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0206 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.7"^^xsd:decimal .
+
+ex-czechregions:CZ0207
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Mladá Boleslav"@cs .
+
+ex-observation:CZ0207-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0207 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "126965"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0207-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0207 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.9"^^xsd:decimal .
+
+ex-czechregions:CZ0208
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Nymburk"@cs .
+
+ex-observation:CZ0208-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0208 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "100100"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0208-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0208 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.5"^^xsd:decimal .
+
+ex-czechregions:CZ0209
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Praha-východ"@cs .
+
+ex-observation:CZ0209-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0209 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "184383"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0209-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0209 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "38.8"^^xsd:decimal .
+
+ex-czechregions:CZ020A
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Praha-západ"@cs .
+
+ex-observation:CZ020A-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ020A ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "148313"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ020A-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ020A ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "39.3"^^xsd:decimal .
+
+ex-czechregions:CZ020B
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Příbram"@cs .
+
+ex-observation:CZ020B-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ020B ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "113817"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ020B-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ020B ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ020C
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rakovník"@cs .
+
+ex-observation:CZ020C-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ020C ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "54761"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ020C-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ020C ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.3"^^xsd:decimal .
+
+ex-czechregions:CZ0311
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "České Budějovice"@cs .
+
+ex-observation:CZ0311-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0311 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "194750"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0311-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0311 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.3"^^xsd:decimal .
+
+ex-czechregions:CZ0312
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Český Krumlov"@cs .
+
+ex-observation:CZ0312-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0312 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "60100"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0312-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0312 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42"^^xsd:decimal .
+
+ex-czechregions:CZ0313
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jindřichův Hradec"@cs .
+
+ex-observation:CZ0313-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0313 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "89438"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0313-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0313 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.8"^^xsd:decimal .
+
+ex-czechregions:CZ0314
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Písek"@cs .
+
+ex-observation:CZ0314-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0314 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "70668"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0314-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0314 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "44"^^xsd:decimal .
+
+ex-czechregions:CZ0315
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Prachatice"@cs .
+
+ex-observation:CZ0315-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0315 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "50235"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0315-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0315 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0316
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Strakonice"@cs .
+
+ex-observation:CZ0316-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0316 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "69798"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0316-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0316 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.5"^^xsd:decimal .
+
+ex-czechregions:CZ0317
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Tábor"@cs .
+
+ex-observation:CZ0317-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0317 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "101433"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0317-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0317 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0321
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Domažlice"@cs .
+
+ex-observation:CZ0321-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0321 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "54321"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0321-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0321 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0322
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Klatovy"@cs .
+
+ex-observation:CZ0322-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0322 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "84899"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0322-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0322 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "44.1"^^xsd:decimal .
+
+ex-czechregions:CZ0323
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-město"@cs .
+
+ex-observation:CZ0323-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0323 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "187684"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0323-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0323 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.4"^^xsd:decimal .
+
+ex-czechregions:CZ0324
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-jih"@cs .
+
+ex-observation:CZ0324-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0324 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "68496"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0324-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0324 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ0325
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Plzeň-sever"@cs .
+
+ex-observation:CZ0325-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0325 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "79811"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0325-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0325 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.2"^^xsd:decimal .
+
+ex-czechregions:CZ0326
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rokycany"@cs .
+
+ex-observation:CZ0326-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0326 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "48408"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0326-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0326 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ0327
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Tachov"@cs .
+
+ex-observation:CZ0327-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0327 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "52739"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0327-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0327 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.1"^^xsd:decimal .
+
+ex-czechregions:CZ0411
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Cheb"@cs .
+
+ex-observation:CZ0411-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0411 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "88539"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0411-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0411 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.3"^^xsd:decimal .
+
+ex-czechregions:CZ0412
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karlovy Vary"@cs .
+
+ex-observation:CZ0412-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0412 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "110526"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0412-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0412 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "44.2"^^xsd:decimal .
+
+ex-czechregions:CZ0413
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Sokolov"@cs .
+
+ex-observation:CZ0413-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0413 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "85955"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0413-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0413 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ0421
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Děčín"@cs .
+
+ex-observation:CZ0421-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0421 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "127120"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0421-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0421 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0422
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Chomutov"@cs .
+
+ex-observation:CZ0422-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0422 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "121959"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0422-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0422 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.2"^^xsd:decimal .
+
+ex-czechregions:CZ0423
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Litoměřice"@cs .
+
+ex-observation:CZ0423-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0423 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "117574"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0423-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0423 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0424
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Louny"@cs .
+
+ex-observation:CZ0424-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0424 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "85550"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0424-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0424 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.4"^^xsd:decimal .
+
+ex-czechregions:CZ0425
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Most"@cs .
+
+ex-observation:CZ0425-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0425 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "107554"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0425-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0425 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0426
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Teplice"@cs .
+
+ex-observation:CZ0426-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0426 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "124523"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0426-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0426 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0427
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústí nad Labem"@cs .
+
+ex-observation:CZ0427-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0427 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "117306"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0427-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0427 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.4"^^xsd:decimal .
+
+ex-czechregions:CZ0511
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Česká Lípa"@cs .
+
+ex-observation:CZ0511-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0511 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "102237"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0511-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0511 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.2"^^xsd:decimal .
+
+ex-czechregions:CZ0512
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jablonec nad Nisou"@cs .
+
+ex-observation:CZ0512-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0512 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "90525"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0512-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0512 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43"^^xsd:decimal .
+
+ex-czechregions:CZ0513
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Liberec"@cs .
+
+ex-observation:CZ0513-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0513 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "173098"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0513-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0513 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.2"^^xsd:decimal .
+
+ex-czechregions:CZ0514
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Semily"@cs .
+
+ex-observation:CZ0514-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0514 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "71662"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0514-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0514 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.6"^^xsd:decimal .
+
+ex-czechregions:CZ0521
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hradec Králové"@cs .
+
+ex-observation:CZ0521-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0521 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "162350"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0521-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0521 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.6"^^xsd:decimal .
+
+ex-czechregions:CZ0522
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jičín"@cs .
+
+ex-observation:CZ0522-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0522 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "78882"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0522-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0522 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.4"^^xsd:decimal .
+
+ex-czechregions:CZ0523
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Náchod"@cs .
+
+ex-observation:CZ0523-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0523 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "108475"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0523-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0523 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0524
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Rychnov nad Kněžnou"@cs .
+
+ex-observation:CZ0524-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0524 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "78533"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0524-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0524 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0525
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Trutnov"@cs .
+
+ex-observation:CZ0525-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0525 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "115965"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0525-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0525 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0531
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Chrudim"@cs .
+
+ex-observation:CZ0531-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0531 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "103748"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0531-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0531 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43"^^xsd:decimal .
+
+ex-czechregions:CZ0532
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pardubice"@cs .
+
+ex-observation:CZ0532-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0532 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "171329"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0532-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0532 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ0533
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Svitavy"@cs .
+
+ex-observation:CZ0533-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0533 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "102977"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0533-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0533 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ0534
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ústí nad Orlicí"@cs .
+
+ex-observation:CZ0534-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0534 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "136359"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0534-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0534 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0631
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Havlíčkův Brod"@cs .
+
+ex-observation:CZ0631-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0631 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "93644"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0631-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0631 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.3"^^xsd:decimal .
+
+ex-czechregions:CZ0632
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jihlava"@cs .
+
+ex-observation:CZ0632-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0632 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "112189"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0632-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0632 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ0633
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Pelhřimov"@cs .
+
+ex-observation:CZ0633-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0633 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "71353"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0633-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0633 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.9"^^xsd:decimal .
+
+ex-czechregions:CZ0634
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Třebíč"@cs .
+
+ex-observation:CZ0634-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0634 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "109564"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0634-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0634 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.4"^^xsd:decimal .
+
+ex-czechregions:CZ0635
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Žďár nad Sázavou"@cs .
+
+ex-observation:CZ0635-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0635 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "117254"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0635-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0635 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ0641
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Blansko"@cs .
+
+ex-observation:CZ0641-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0641 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "107750"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0641-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0641 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.8"^^xsd:decimal .
+
+ex-czechregions:CZ0642
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Brno-město"@cs .
+
+ex-observation:CZ0642-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0642 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "378244"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0642-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0642 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0643
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Brno-venkov"@cs .
+
+ex-observation:CZ0643-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0643 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "223644"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0643-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0643 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "41.2"^^xsd:decimal .
+
+ex-czechregions:CZ0644
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Břeclav"@cs .
+
+ex-observation:CZ0644-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0644 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "114677"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0644-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0644 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.1"^^xsd:decimal .
+
+ex-czechregions:CZ0645
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Hodonín"@cs .
+
+ex-observation:CZ0645-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0645 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "151746"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0645-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0645 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.9"^^xsd:decimal .
+
+ex-czechregions:CZ0646
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Vyškov"@cs .
+
+ex-observation:CZ0646-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0646 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "91767"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0646-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0646 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.1"^^xsd:decimal .
+
+ex-czechregions:CZ0647
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Znojmo"@cs .
+
+ex-observation:CZ0647-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0647 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "113388"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0647-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0647 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ0711
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Jeseník"@cs .
+
+ex-observation:CZ0711-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0711 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "37097"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0711-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0711 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "44.3"^^xsd:decimal .
+
+ex-czechregions:CZ0712
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Olomouc"@cs .
+
+ex-observation:CZ0712-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0712 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "233837"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0712-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0712 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.6"^^xsd:decimal .
+
+ex-czechregions:CZ0713
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Prostějov"@cs .
+
+ex-observation:CZ0713-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0713 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "107746"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0713-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0713 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ0714
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Přerov"@cs .
+
+ex-observation:CZ0714-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0714 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "127300"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0714-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0714 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.8"^^xsd:decimal .
+
+ex-czechregions:CZ0715
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Šumperk"@cs .
+
+ex-observation:CZ0715-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0715 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "118951"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0715-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0715 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.5"^^xsd:decimal .
+
+ex-czechregions:CZ0721
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Kroměříž"@cs .
+
+ex-observation:CZ0721-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0721 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "103862"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0721-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0721 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0722
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Uherské Hradiště"@cs .
+
+ex-observation:CZ0722-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0722 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "139975"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0722-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0722 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0723
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Vsetín"@cs .
+
+ex-observation:CZ0723-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0723 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "140526"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0723-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0723 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.2"^^xsd:decimal .
+
+ex-czechregions:CZ0724
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Zlín"@cs .
+
+ex-observation:CZ0724-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0724 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "189355"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0724-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0724 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.6"^^xsd:decimal .
+
+ex-czechregions:CZ0801
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Bruntál"@cs .
+
+ex-observation:CZ0801-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0801 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "90288"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0801-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0801 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.7"^^xsd:decimal .
+
+ex-czechregions:CZ0802
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Frýdek-Místek"@cs .
+
+ex-observation:CZ0802-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0802 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "212384"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0802-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0802 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.7"^^xsd:decimal .
+
+ex-czechregions:CZ0803
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Karviná"@cs .
+
+ex-observation:CZ0803-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0803 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "242449"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0803-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0803 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.9"^^xsd:decimal .
+
+ex-czechregions:CZ0804
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Nový Jičín"@cs .
+
+ex-observation:CZ0804-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0804 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "149900"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0804-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0804 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.5"^^xsd:decimal .
+
+ex-czechregions:CZ0805
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Opava"@cs .
+
+ex-observation:CZ0805-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0805 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "174059"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0805-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0805 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "42.9"^^xsd:decimal .
+
+ex-czechregions:CZ0806
+        rdf:type        <https://data.cssz.cz/ontology/ruian/Okres> ;
+        rdf:type        skos:Concept ;
+        skos:inScheme   <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        skos:prefLabel  "Ostrava-město"@cs .
+
+ex-observation:CZ0806-numberOfPeople
+        rdf:type                   qb:Observation ;
+        qb:dataSet                 ex:czech-people-regions ;
+        ex-dimension:refArea       ex-czechregions:CZ0806 ;
+        ex-dimension:refPeriod     <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType   ex-measure:numberOfPeople ;
+        ex-measure:numberOfPeople  "314360"^^xsd:nonNegativeInteger .
+
+ex-observation:CZ0806-averageAge
+        rdf:type                  qb:Observation ;
+        qb:dataSet                ex:czech-people-regions ;
+        ex-dimension:refArea      ex-czechregions:CZ0806 ;
+        ex-dimension:refPeriod    <http://reference.data.gov.uk/id/gregorian-interval/2021-01-01T00:00:00/P1Y> ;
+        ex-dimension:measureType  ex-measure:averageAge ;
+        ex-measure:averageAge     "43.3"^^xsd:decimal .
