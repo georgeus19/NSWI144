@@ -32,7 +32,7 @@ ex-metadata:record a dcat:CatalogRecord ;
 
 # DCAT
 # Popisuji muj vznikly dataset (casti ktere jsem ingoroval beru jako ze tam nejsou).
-# Beru to tak, ze CZSO publikuje muj dataset, jinak nevim, jak vyplnit publisher a periodicitu...
+# Beru to tak, ze CZSO publikuje muj dataset, jinak nevim, jak vyplnit publisher (kdyz clovek publikeju jen transformovany dataset muze byt publisher??) a periodicitu...
 ex:czech-birth-regions a dcat:Dataset ;
     dcterms:title "Live births values for regions in the Czech Republic."@en ;
     dcterms:description "Live births values for regions in the Czech Republic."@en ;
