@@ -1,0 +1,22 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex-catalog: <http://example.org/opendata/catalog/> 
+PREFIX ex-catalog-publishers: <http://example.org/opendata/catalog/publishers#> 
+PREFIX dcat: <http://www.w3.org/ns/dcat#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX xsd:  <https://www.w3.org/2001/XMLSchema#> 
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
+
+# Get UK regions linked by live births similarity for Plzeň-město. 
+SELECT  ?czLiveBirths STR(?ukRegion) ?ukLiveBirths ?liveBirthsDifference ?liveBirthsDifferenceLessThanTen
+WHERE {
+<http://example.org/opendata/czech/births/observation/967523873> <http://example.org/opendata/czech/births/measure/liveBirths> ?czLiveBirths ;
+    <http://example.org/opendata/similar-live-births> ?ukLiveBirthsObservation .
+
+?ukLiveBirthsObservation <http://example.org/opendata/uk/births/dimension/refArea>/skos:prefLabel ?ukRegion;
+    <http://example.org/opendata/uk/births/measure/liveBirths> ?ukLiveBirths .
+
+BIND(ABS(xsd:integer(?czLiveBirths) - xsd:integer(?ukLiveBirths)) AS ?liveBirthsDifference) .
+BIND(IF(?liveBirthsDifference < 10, true, false) AS ?liveBirthsDifferenceLessThanTen) .
+}
