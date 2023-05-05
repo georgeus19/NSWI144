@@ -1,0 +1,93 @@
+<Silk>
+        <Prefixes>
+      <Prefix id="" namespace=""/><Prefix id="rdf" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/><Prefix id="dcterms" namespace="http://purl.org/dc/terms/"/><Prefix id="owl" namespace="http://www.w3.org/2002/07/owl#"/><Prefix id="skos" namespace="http://www.w3.org/2004/02/skos/core#"/><Prefix id="foaf" namespace="http://xmlns.com/foaf/0.1/"/><Prefix id="schema" namespace="http://schema.org/"/><Prefix id="rdfs" namespace="http://www.w3.org/2000/01/rdf-schema#"/><Prefix id="xsd" namespace="http://www.w3.org/2001/XMLSchema#"/><Prefix id="qb" namespace="http://purl.org/linked-data/cube#"/>
+    </Prefixes>
+        <DataSources>
+          <Dataset id="czech-region-births" type="file" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="zipFileRegex" xml:space="preserve"><![CDATA[.*]]></Param><Param name="format" xml:space="preserve"><![CDATA[]]></Param><Param name="file" xml:space="preserve"><![CDATA[czech-region-births.ttl]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset><Dataset id="uk-region-births" type="file" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="zipFileRegex" xml:space="preserve"><![CDATA[.*]]></Param><Param name="format" xml:space="preserve"><![CDATA[]]></Param><Param name="file" xml:space="preserve"><![CDATA[uk-region-births.ttl]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset>
+        </DataSources>
+        <Interlinks>
+          <Interlink id="czech-births-regions-to-uk-birth-regions-by-births-linking" linkLimit="1000000" matchingExecutionTimeout="3600"><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        <Modified>2023-05-05T11:41:27.194070Z</Modified>
+        <Created>2023-05-05T11:06:31.842144Z</Created>
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+        <SourceDataset dataSource="czech-region-births" var="a" typeUri="http://purl.org/linked-data/cube#Observation">
+        <RestrictTo xml:space="preserve">
+          
+        </RestrictTo>
+      </SourceDataset>
+        <TargetDataset dataSource="uk-region-births" var="b" typeUri="">
+        <RestrictTo xml:space="preserve">
+          ?a &lt;http://example.org/opendata/uk/births/dimension/measureType&gt; &lt;http://example.org/opendata/uk/births/measure/liveBirths&gt; .
+        </RestrictTo>
+      </TargetDataset>
+        <LinkageRule linkType="&lt;http://example.org/opendata/similar-live-births&gt;">
+        <Compare id="num1" weight="1" metric="num" threshold="1000.0" indexing="true">
+            <Input id="sourcePath1" path="&lt;http://example.org/opendata/czech/births/measure/liveBirths&gt;"/><Input id="targetPath1" path="&lt;http://example.org/opendata/uk/births/measure/liveBirths&gt;"/><Param name="minValue" xml:space="preserve"><![CDATA[-Infinity]]></Param><Param name="maxValue" xml:space="preserve"><![CDATA[Infinity]]></Param>
+          </Compare>
+        <Filter limit="10"/>
+        <RuleLayout>
+        <NodePositions>
+          
+        </NodePositions>
+      </RuleLayout>
+        <UiAnnotations>
+        <StickyNotes>
+          
+        </StickyNotes>
+      </UiAnnotations>
+      </LinkageRule>
+        <Outputs>
+          <Output id="czech-births-regions-to-uk-birth-regions-by-births"></Output>
+        </Outputs>
+      </Interlink>
+        </Interlinks>
+        <Transforms>
+          
+        </Transforms>
+        <Outputs>
+          <Dataset id="czech-births-regions-to-uk-birth-regions-by-births" type="file" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="zipFileRegex" xml:space="preserve"><![CDATA[.*]]></Param><Param name="format" xml:space="preserve"><![CDATA[]]></Param><Param name="file" xml:space="preserve"><![CDATA[czech-births-regions-to-uk-birth-regions-by-births.nt]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset>
+        </Outputs>
+      </Silk>
