@@ -1,0 +1,99 @@
+<Silk>
+        <Prefixes>
+      <Prefix id="" namespace=""/><Prefix id="rdf" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/><Prefix id="dcterms" namespace="http://purl.org/dc/terms/"/><Prefix id="owl" namespace="http://www.w3.org/2002/07/owl#"/><Prefix id="skos" namespace="http://www.w3.org/2004/02/skos/core#"/><Prefix id="foaf" namespace="http://xmlns.com/foaf/0.1/"/><Prefix id="schema" namespace="http://schema.org/"/><Prefix id="rdfs" namespace="http://www.w3.org/2000/01/rdf-schema#"/><Prefix id="xsd" namespace="http://www.w3.org/2001/XMLSchema#"/><Prefix id="qb" namespace="http://purl.org/linked-data/cube#"/>
+    </Prefixes>
+        <DataSources>
+          <Dataset id="ruian" type="sparqlEndpoint" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="pageSize" xml:space="preserve"><![CDATA[1000]]></Param><Param name="clearGraphBeforeExecution" xml:space="preserve"><![CDATA[false]]></Param><Param name="pauseTime" xml:space="preserve"><![CDATA[0]]></Param><Param name="retryCount" xml:space="preserve"><![CDATA[3]]></Param><Param name="endpointURI" xml:space="preserve"><![CDATA[https://ruian.linked.opendata.cz/sparql]]></Param><Param name="strategy" xml:space="preserve"><![CDATA[subQuery]]></Param><Param name="retryPause" xml:space="preserve"><![CDATA[1000]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="queryParameters" xml:space="preserve"><![CDATA[]]></Param><Param name="login" xml:space="preserve"><![CDATA[]]></Param><Param name="useOrderBy" xml:space="preserve"><![CDATA[true]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param><Param name="sparqlTimeout" xml:space="preserve"><![CDATA[0]]></Param><Param name="password" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset><Dataset id="czech-region-births" type="file" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="zipFileRegex" xml:space="preserve"><![CDATA[.*]]></Param><Param name="format" xml:space="preserve"><![CDATA[]]></Param><Param name="file" xml:space="preserve"><![CDATA[czech-region-births.ttl]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset>
+        </DataSources>
+        <Interlinks>
+          <Interlink id="ruian-okresy-to-czech-births-okresy-linking" linkLimit="1000000" matchingExecutionTimeout="3600"><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        <Modified>2023-05-05T10:23:30.945605Z</Modified>
+        <Created>2023-05-05T09:51:15.721371Z</Created>
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+        <SourceDataset dataSource="ruian" var="a" typeUri="https://ruian.linked.opendata.cz/slovník/Okres">
+        <RestrictTo xml:space="preserve">
+          
+        </RestrictTo>
+      </SourceDataset>
+        <TargetDataset dataSource="czech-region-births" var="b" typeUri="https://data.cssz.cz/ontology/ruian/Okres">
+        <RestrictTo xml:space="preserve">
+          
+        </RestrictTo>
+      </TargetDataset>
+        <LinkageRule linkType="&lt;http://www.w3.org/2002/07/owl#sameAs&gt;">
+        <Compare id="equality1" weight="1" metric="equality" threshold="0.0" indexing="true">
+            <TransformInput id="lowerCase1" function="lowerCase">
+        <Input id="sourcePath1" path="&lt;http://schema.org/name&gt;"/>
+        
+      </TransformInput><TransformInput id="lowerCase2" function="lowerCase">
+        <Input id="targetPath1" path="&lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt;"/>
+        
+      </TransformInput>
+          </Compare>
+        <Filter limit="1"/>
+        <RuleLayout>
+        <NodePositions>
+          
+        </NodePositions>
+      </RuleLayout>
+        <UiAnnotations>
+        <StickyNotes>
+          
+        </StickyNotes>
+      </UiAnnotations>
+      </LinkageRule>
+        <Outputs>
+          <Output id="ruian-okresy-to-czech-births-okresy"></Output>
+        </Outputs>
+      </Interlink>
+        </Interlinks>
+        <Transforms>
+          
+        </Transforms>
+        <Outputs>
+          <Dataset id="ruian-okresy-to-czech-births-okresy" type="file" uriProperty=""><MetaData>
+        <Label></Label>
+        <Description xml:space="preserve"><![CDATA[]]></Description>
+        
+        
+        
+        
+        <Tags>
+          
+        </Tags>
+      </MetaData>
+            <Param name="zipFileRegex" xml:space="preserve"><![CDATA[.*]]></Param><Param name="format" xml:space="preserve"><![CDATA[]]></Param><Param name="file" xml:space="preserve"><![CDATA[ruian-okresy-to-czech-births-okresy.nt]]></Param><Param name="graph" xml:space="preserve"><![CDATA[]]></Param><Param name="entityList" xml:space="preserve"><![CDATA[]]></Param>
+          </Dataset>
+        </Outputs>
+      </Silk>
