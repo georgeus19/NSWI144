@@ -1,0 +1,25 @@
+@prefix ex: <http://example.org/opendata/linksets#> .
+@prefix ex-people: <http://example.org/opendata/people#> .
+@prefix ex-regions-births: <http://example.org/opendata/czech/births/> . 
+@prefix ex-regions-people: <http://example.org/opendata/czech/people/> . 
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:czech-births-regions-to-czech-people-regions a void:Linkset ;
+    void:subjectsTarget ex-regions-births:czech-birth-regions ;
+    void:objectsTarget ex-regions-people:czech-people-regions ;
+    void:linkPredicate owl:sameAs ;
+    dcterms:title "Linkset of czech regions from births dataset to czech regions from people count dataset."@en ;
+    dcterms:creator ex-people:KrystofHruby ;
+    dcterms:description "Linkset of czech regions from births dataset to czech regions from people count dataset. The regions are mapped based on their skos:prefLabel."@en ;
+    void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/internal/czech-births-regions-to-czech-people-regions/linkset.nt> ;
+    dcterms:modified "2023-05-05"^^xsd:date ;
+    dcterms:created "2023-05-05"^^xsd:date ;
+    void:exampleResource <http://example.org/opendata/czech/regions/40380> ;
+    dcterms:subject <http://dbpedia.org/resource/Region> ;
+    dcterms:source 
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/internal/czech-births-regions-to-czech-people-regions/linkset.nt> ;
+    void:vocabulary owl: .

@@ -1,0 +1,22 @@
+@prefix ex: <http://example.org/opendata/linksets#> .
+@prefix ex-people: <http://example.org/opendata/people#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+ex:czech-births-regions-to-uk-birth-regions-by-births a void:Linkset ;
+    void:subjectsTarget <http://example.org/opendata/czech/births/czech-birth-regions> ;
+    void:objectsTarget <http://example.org/uk/opendata/uk/births/uk-birth-regions> ;
+    void:linkPredicate <http://example.org/opendata/similar-live-births> ;
+    dcterms:title "Linkset of observations of live births of the regions of the Czech Republic and the United Kingdom."@en ;
+    dcterms:creator ex-people:KrystofHruby ;
+    dcterms:description "Linkset of observations of live births of the regions of the Czech Republic and the United Kingdom. Based on measure liveBirths."@en ;
+    void:dataDump
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/internal/czech-births-regions-to-uk-birth-regions-by-births/linkset.nt> ;
+    dcterms:modified "2023-05-05"^^xsd:date ;
+    dcterms:created "2023-05-05"^^xsd:date ;
+    void:exampleResource <http://example.org/opendata/czech/births/observation/967545248> ;
+    dcterms:subject <http://dbpedia.org/resource/Birth> ;
+    dcterms:source 
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/internal/czech-births-regions-to-uk-birth-regions-by-births/linkset.nt> .

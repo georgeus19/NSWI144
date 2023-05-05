@@ -1,0 +1,23 @@
+@prefix ex: <http://example.org/opendata/linksets#> .
+@prefix ex-people: <http://example.org/opendata/people#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:ruian-kraje-to-czech-birth-kraje a void:Linkset ;
+    void:subjectsTarget <https://ruian.linked.opendata.cz/zdroj/datov%C3%A1-sada/r%C3%BAian/distribuce/rdf> ;
+    void:objectsTarget <http://example.org/opendata/czech/births/czech-birth-regions> ;
+    void:linkPredicate owl:sameAs ;
+    dcterms:title "Linkset of ruian kraj regions to czech births kraj regions"@en ;
+    dcterms:creator ex-people:KrystofHruby ;
+    dcterms:description "Linkset of ruian kraj regions to czech births kraj regions. The regions are mapped based on their schema:name and skos:prefLabel."@en ;
+    void:dataDump <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/external/ruian-kraje-to-czech-births-kraje/linkset.nt> ;
+    dcterms:modified "2023-05-05"^^xsd:date ;
+    dcterms:created "2023-05-05"^^xsd:date ;
+    void:exampleResource <https://ruian.linked.opendata.cz/zdroj/vúsc/43> ;
+    dcterms:subject <http://dbpedia.org/resource/Region> ;
+    dcterms:source 
+        <https://raw.githubusercontent.com/georgeus19/NSWI144/main/linking/external/ruian-kraje-to-czech-births-kraje/linkset.nt> ;
+    void:vocabulary owl: .
