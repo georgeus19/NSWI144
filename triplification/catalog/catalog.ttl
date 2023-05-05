@@ -1,0 +1,20 @@
+@prefix ex-catalog: <http://example.org/opendata/catalog/> .
+@prefix ex-catalog-publishers: <http://example.org/opendata/catalog/publishers#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex-catalog:catalog a dcat:Catalog ;
+    dcterms:title "Example catalog of consisting of datasets of data about Czech Republic and UK"@en ;
+    dcterms:description "Example catalog of consisting of datasets of data about Czech Republic and UK"@en ;
+    dcterms:publisher ex-catalog-publishers:KrystofHruby ;
+    dcterms:spatial <http://publications.europa.eu/resource/authority/continent/EUROPE> ;
+    dcat:dataset 
+        <http://example.org/opendata/czech/births/czech-birth-regions>,
+        <http://example.org/opendata/czech/people/czech-people-regions>,
+        <http://example.org/uk/opendata/uk/births/uk-birth-regions> ; 
+    dcat:record 
+        ex-catalog:czech-births-regions-record, 
+        ex-catalog:czech-people-regions-record, 
+        ex-catalog:uk-births-regions-record ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> .

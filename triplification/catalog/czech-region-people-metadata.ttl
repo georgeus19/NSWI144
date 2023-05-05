@@ -3,7 +3,8 @@
 @prefix ex-observation: <http://example.org/opendata/czech/people/observation/> . 
 @prefix ex-dimension: <http://example.org/opendata/czech/people/dimension/> . 
 @prefix ex-measure: <http://example.org/opendata/czech/people/measure/> . 
-@prefix ex-metadata: <http://example.org/opendata/czech/people/metadata/> . 
+@prefix ex-catalog: <http://example.org/opendata/catalog/> .
+@prefix ex-metadata: <http://example.org/opendata/czech/people/metadata/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -19,20 +20,9 @@
 @prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 
-# Example Catalog
-ex-metadata:catalog a dcat:Catalog ;
-    dcterms:title "Example catalog for number of people in regions in Czech Republic."@en ;
-    dcterms:description "Example catalog for number of people in regions in Czech Republic."@en ;
-    dcterms:publisher ex-metadata:publisher ;
-    dcterms:spatial <http://publications.europa.eu/resource/authority/country/CZE> ;
-    dcat:dataset ex:czech-people-regions ; 
-    dcat:record ex-metadata:record ;
-    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> .
-
-# Example records
-ex-metadata:record a dcat:CatalogRecord ;
+ex-catalog:czech-people-regions-record a dcat:CatalogRecord ;
     foaf:primaryTopic ex:czech-people-regions ;
-    dcterms:modified "2021-04-29"^^xsd:date .
+    dcterms:modified "2021-05-05"^^xsd:date .
 
 # DCAT
 # Popisuji muj vznikly dataset (casti ktere jsem ignoroval beru jako, ze tam nejsou).
