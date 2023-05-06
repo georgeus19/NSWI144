@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="4.0">
+  <servlet>
+    <description></description>
+    <display-name>CzechRegionsByBirthsServlet</display-name>
+    <servlet-name>CzechRegionsByBirthsServlet</servlet-name>
+    <servlet-class>CzechRegionsByBirthsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CzechRegionsByBirthsServlet</servlet-name>
+    <url-pattern>/CzechRegionsByBirthsServlet</url-pattern>
+  </servlet-mapping>
+  <display-name>nswi144-births-regions</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CzechRegionServlet</display-name>
+    <servlet-name>CzechRegionServlet</servlet-name>
+    <servlet-class>CzechRegionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CzechRegionServlet</servlet-name>
+    <url-pattern>/CzechRegionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CzechRegionsCbr</display-name>
+    <servlet-name>CzechRegionsCbr</servlet-name>
+    <servlet-class>CzechRegionsCbr</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CzechRegionsCbr</servlet-name>
+    <url-pattern>/CzechRegionsCbr</url-pattern>
+  </servlet-mapping>
+</web-app>
