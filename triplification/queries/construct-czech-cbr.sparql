@@ -9,7 +9,8 @@ CONSTRUCT {
 ?czechBirthRegion <http://example.org/opendata/czech/births/measure/crudeBirthRate> ?crudeBirthRate ;
     <http://example.org/opendata/czech/people/measure/numberOfPeople> ?numberOfPeople ;
     <http://example.org/opendata/czech/births/measure/liveBirths> ?liveBirths ;
-    a ?type .
+    a ?type ;
+    skos:prefLabel ?czechBirthRegionName .
 ?type skos:prefLabel ?label .
 
 } 
@@ -19,6 +20,8 @@ WHERE {
 OPTIONAL {
 ?czechBirthRegion owl:sameAs/^<http://example.org/opendata/czech/people/dimension/refArea>/<http://example.org/opendata/czech/people/measure/numberOfPeople> ?numberOfPeople .
 }
+
+?czechBirthRegion skos:prefLabel ?czechBirthRegionName .
 
 BIND(xsd:decimal(?liveBirths) / xsd:decimal(?numberOfPeople) * 1000.0 AS ?crudeBirthRate)
 

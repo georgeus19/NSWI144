@@ -1,14 +1,19 @@
 PREFIX xsd:  <https://www.w3.org/2001/XMLSchema#> 
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
 
-# Get UK regions linked by live births similarity for Plzeň-město. 
-SELECT  ?czLiveBirths (STR(?ukRegion) AS ?ukRegion) ?ukLiveBirths ?liveBirthsDifference ?liveBirthsDifferenceLessThanTen
+# Get UK regions linked by live births similarity for Plzeň-město - updated to get more data in web app.
+SELECT ?czechRegion ?czechRegionName ?czLiveBirths ?ukRegion ?ukRegionName ?ukLiveBirths ?liveBirthsDifference ?liveBirthsDifferenceLessThanTen
 WHERE {
 <http://example.org/opendata/czech/births/observation/967523873> <http://example.org/opendata/czech/births/measure/liveBirths> ?czLiveBirths ;
-    <http://example.org/opendata/similar-live-births> ?ukLiveBirthsObservation .
+    <http://example.org/opendata/similar-live-births> ?ukLiveBirthsObservation ;
+    <http://example.org/opendata/czech/births/dimension/refArea> ?czechRegion .
 
-?ukLiveBirthsObservation <http://example.org/opendata/uk/births/dimension/refArea>/skos:prefLabel ?ukRegion;
+?czechRegion skos:prefLabel ?czechRegionName .
+
+?ukLiveBirthsObservation <http://example.org/opendata/uk/births/dimension/refArea> ?ukRegion ;
     <http://example.org/opendata/uk/births/measure/liveBirths> ?ukLiveBirths .
+
+?ukRegion skos:prefLabel ?ukRegionName .
 
 BIND(ABS(xsd:integer(?czLiveBirths) - xsd:integer(?ukLiveBirths)) AS ?liveBirthsDifference) .
 BIND(IF(?liveBirthsDifference < 10, true, false) AS ?liveBirthsDifferenceLessThanTen) .
