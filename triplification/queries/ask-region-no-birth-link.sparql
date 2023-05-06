@@ -1,11 +1,3 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX ex-catalog: <http://example.org/opendata/catalog/> 
-PREFIX ex-catalog-publishers: <http://example.org/opendata/catalog/publishers#> 
-PREFIX dcat: <http://www.w3.org/ns/dcat#> 
-PREFIX dcterms: <http://purl.org/dc/terms/> 
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-PREFIX xsd:  <https://www.w3.org/2001/XMLSchema#> 
 PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
 
 # Is there a region in UK that has no linked CZ regions with similar live birth count?

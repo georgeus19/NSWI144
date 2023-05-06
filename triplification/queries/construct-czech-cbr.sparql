@@ -1,1 +1,31 @@
-# Calculate crude birth rate for each czech region
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX xsd:  <https://www.w3.org/2001/XMLSchema#> 
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# Calculate crude birth rate for each czech region. If a we cannot find numberOfPeople for a region, include it in the result set anyway.
+# Save as a simplified rdf view.
+CONSTRUCT {
+?czechBirthRegion <http://example.org/opendata/czech/births/measure/crudeBirthRate> ?crudeBirthRate ;
+    <http://example.org/opendata/czech/people/measure/numberOfPeople> ?numberOfPeople ;
+    <http://example.org/opendata/czech/births/measure/liveBirths> ?liveBirths ;
+    a ?type .
+?type skos:prefLabel ?label .
+
+} 
+WHERE {
+?czechBirthObs <http://example.org/opendata/czech/births/dimension/refArea> ?czechBirthRegion ;
+    <http://example.org/opendata/czech/births/measure/liveBirths> ?liveBirths .
+OPTIONAL {
+?czechBirthRegion owl:sameAs/^<http://example.org/opendata/czech/people/dimension/refArea>/<http://example.org/opendata/czech/people/measure/numberOfPeople> ?numberOfPeople .
+}
+
+BIND(xsd:decimal(?liveBirths) / xsd:decimal(?numberOfPeople) * 1000.0 AS ?crudeBirthRate)
+
+?czechBirthRegion a ?type .
+VALUES(?type ?label) {
+    (<https://data.cssz.cz/ontology/ruian/Stat> "Stat"@cs)
+    (<https://data.cssz.cz/ontology/ruian/Vusc> "Kraj"@cs)
+    (<https://data.cssz.cz/ontology/ruian/Okres> "Okres"@cs)
+}
+}

@@ -1,0 +1,13 @@
+# Create a simplified view of the uk births data cube for reference regions.
+CONSTRUCT {
+?ukRegion  <http://example.org/opendata/uk/births/measure/liveBirths> ?liveBirths ;
+    <http://example.org/opendata/uk/births/measure/crudeBirthRate> ?crudeBirthRate ;
+    <http://example.org/opendata/uk/births/measure/generalFertilityRate> ?generalFertilityRate ;
+    <http://example.org/opendata/uk/births/measure/totalFertilityRate> ?totalFertilityRate .
+} 
+WHERE {
+?ukRegion ^<http://example.org/opendata/uk/births/dimension/refArea>/<http://example.org/opendata/uk/births/measure/liveBirths> ?liveBirths .
+?ukRegion ^<http://example.org/opendata/uk/births/dimension/refArea>/<http://example.org/opendata/uk/births/measure/crudeBirthRate> ?crudeBirthRate .
+?ukRegion ^<http://example.org/opendata/uk/births/dimension/refArea>/<http://example.org/opendata/uk/births/measure/generalFertilityRate> ?generalFertilityRate .
+?ukRegion ^<http://example.org/opendata/uk/births/dimension/refArea>/<http://example.org/opendata/uk/births/measure/totalFertilityRate> ?totalFertilityRate .
+}

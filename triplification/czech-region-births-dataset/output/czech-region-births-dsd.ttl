@@ -1,5 +1,5 @@
 @prefix ex: <http://example.org/opendata/czech/births/> . 
-@prefix ex-czechregions: <http://example.org/opendata/czech/births/regions/> . 
+@prefix ex-czechregions: <http://example.org/opendata/czech/regions/> . 
 @prefix ex-observation: <http://example.org/opendata/czech/births/observation/> . 
 @prefix ex-dimension: <http://example.org/opendata/czech/births/dimension/> . 
 @prefix ex-measure: <http://example.org/opendata/czech/births/measure/> . 
