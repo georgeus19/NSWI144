@@ -1,0 +1,46 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex-czechregions:  <http://example.org/opendata/czech/people/regions/> .
+@prefix qb:  <http://purl.org/linked-data/cube#> .
+@prefix ex-observation:  <http://example.org/opendata/czech/people/observation/> .
+@prefix ex-dimension:  <http://example.org/opendata/czech/people/dimension/> .
+@prefix ex:  <http://example.org/opendata/czech/people/> .
+@prefix ex-measure:  <http://example.org/opendata/czech/people/measure/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <https://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
+
+# Check that for each region the ref period is that same
+ex:ObservationShape a sh:NodeShape ;
+	sh:targetClass qb:Observation ;
+	sh:property [
+    	sh:path ( ex-dimension:refArea [ sh:inversePath ex-dimension:refArea ] ex-dimension:refPeriod ) ;
+        sh:equals ex-dimension:refPeriod ;
+        sh:message "Ref period must be for observations for the same region the same."@en
+    ] ;
+	sh:property [
+      	sh:path ex-dimension:refArea ;
+    	sh:node ex:RegionShape ;
+		sh:minCount 1 ;
+		sh:message "Reference are must have shape accoring to RegionShape."@en
+    ] .
+
+# Node shape for regions.
+# Any region must be in ruain concept scheme and have only on pref label per language.
+ex:RegionShape a sh:NodeShape ;
+	sh:property [
+    	sh:path skos:inScheme ;
+        sh:hasValue <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        sh:minCount 1 ;
+        sh:message "Region must be in ruian concept scheme."@en
+    ] ;
+	sh:property [
+    	sh:path skos:prefLabel ;
+        sh:uniqueLang true ;
+        # Why is this msg not seen in validation failure
+        # I see this: "Language \"cs\" has been used by 2 values" ;
+        # but this works for skos:inScheme property above...
+        sh:message "Reference areas can have only one pref label pre language."@en
+    ] .
+
+

@@ -1,18 +1,86 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex-czechregions:  <http://example.org/opendata/czech/regions/> .
+@prefix qb:  <http://purl.org/linked-data/cube#> .
+@prefix ex-observation:  <http://example.org/opendata/czech/births/observation/> .
+@prefix ex-dimension:  <http://example.org/opendata/czech/births/dimension/> .
 @prefix ex:  <http://example.org/opendata/czech/births/> .
+@prefix ex-measure:  <http://example.org/opendata/czech/births/measure/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <https://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
 
-# Check
+# skos:prefLabel must be in czech.
 
-ex:regionInScheme a sh:NodeShape ;
-	sh:targetClass <https://data.cssz.cz/ontology/ruian/Vusc> ;
+ex:CzechPrefLabelsShape a sh:PropertyShape ;
+	sh:path skos:prefLabel ;
+	sh:languageIn ( "cs" ) ;
+	sh:message "Pref label not in czech."@en ;
+	sh:severity sh:Warning .
+
+# Check that all live births values are xsd:nonNegativeInteger.
+ex:LiveBirthsValueTypeShape a sh:PropertyShape ;
+	sh:targetClass qb:Observation ;
+	sh:path ex-measure:liveBirths ;
+	sh:message "Live birth measure incorrect value type."@en ;
+	sh:datatype xsd:nonNegativeInteger .
+
+ex:RegionInSchemeShape a sh:NodeShape ;
+	sh:targetClass 
+        <https://data.cssz.cz/ontology/ruian/Vusc>, 
+        <https://data.cssz.cz/ontology/ruian/Okres>,
+        <https://data.cssz.cz/ontology/ruian/Stat> ;
+	# Check that any region is in ruain concept scheme.
     sh:property [
         sh:path skos:inScheme ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:hasValue <https://data.cssz.cz/resource/ruian/ConceptScheme>
+        sh:hasValue <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
+        sh:message "Region not in ruian concept scheme!"@en
+    ] ;
+	sh:property ex:CzechPrefLabelsShape .
+
+# Shape for observation checking that each observation has refArea and refPeriod.
+ex:ObservationWithAllDimensionsShape a sh:NodeShape ;
+	sh:targetClass qb:Observation ;
+	sh:property [
+		sh:path ex-dimension:refArea ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Ref area dimension must be present exactly once."
+    ] ;
+	sh:property [
+		sh:path ex-dimension:refPeriod ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+		sh:message "Ref period dimension must be present exactly once."
     ] .
 
+# Shape for specification of what can be object of dimension refArea - state, county, distict
+ex:ReferenceAreaShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf ex-dimension:refArea ;
+	sh:message "Ref area must be state, county or district"@en ;
+	sh:or (
+    	[
+        	sh:path rdf:type ;
+            sh:hasValue <https://data.cssz.cz/ontology/ruian/Stat> ;
+            sh:minOccurs 1 
+        ]
+    	[
+        	sh:path rdf:type ;
+            sh:hasValue <https://data.cssz.cz/ontology/ruian/Vusc> ;
+            sh:minOccurs 1 
+        ]
+    	[
+        	sh:path rdf:type ;
+            sh:hasValue <https://data.cssz.cz/ontology/ruian/Okres> ;
+            sh:minOccurs 1 
+        ]
+    ) .
 
-## Pardon, zase nestiham. Pridam shapy dnes vecer.
+
+
+
+
+
