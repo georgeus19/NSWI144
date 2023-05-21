@@ -35,6 +35,7 @@ ex:RegionShape a sh:NodeShape ;
 # Check that for each region the ref period is that same.
 # Check region shapes using RegionShape
 # Check the type of averageAge (xsd:decimal) and numberOfPeople (xsd:nonNegativeInteger).
+# AverageAge mustbe between 0 and 100.
 ex:ObservationShape a sh:NodeShape ;
 	sh:targetClass qb:Observation ;
 	sh:property [
@@ -50,8 +51,10 @@ ex:ObservationShape a sh:NodeShape ;
     ] ;
 	sh:property [
     	sh:path ex-measure:averageAge ;
-        sh:message "Average age must have xsd decimal type."@en ;
-        sh:datatype xsd:decimal 
+        sh:message "Average age must have xsd decimal type and be in range 0 - 100."@en ;
+        sh:datatype xsd:decimal ;
+        sh:maxInclusive 100.0 ;
+        sh:minInclusive 0.0 
     ] ;
 	sh:property [
     	sh:path ex-measure:numberOfPeople ;
