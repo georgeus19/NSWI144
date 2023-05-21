@@ -1,0 +1,18 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex:  <http://example.org/opendata/czech/births/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+
+# Check
+
+ex:regionInScheme a sh:NodeShape ;
+	sh:targetClass <https://data.cssz.cz/ontology/ruian/Vusc> ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue <https://data.cssz.cz/resource/ruian/ConceptScheme>
+    ] .
+
+
+## Pardon, zase nestiham. Pridam shapy dnes vecer.
