@@ -11,20 +11,20 @@
 @prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
 
 # skos:prefLabel must be in czech.
-
 ex:CzechPrefLabelsShape a sh:PropertyShape ;
 	sh:path skos:prefLabel ;
 	sh:languageIn ( "cs" ) ;
-	sh:message "Pref label not in czech."@en ;
+	sh:message "Pref label must be in czech."@en ;
 	sh:severity sh:Warning .
 
-# Check that all live births values are xsd:nonNegativeInteger.
+# Check that for all observations live births values are xsd:nonNegativeInteger.
 ex:LiveBirthsValueTypeShape a sh:PropertyShape ;
 	sh:targetClass qb:Observation ;
 	sh:path ex-measure:liveBirths ;
-	sh:message "Live birth measure incorrect value type."@en ;
+	sh:message "Live birth measure incorrect must be xsd non negative integer."@en ;
 	sh:datatype xsd:nonNegativeInteger .
 
+# Check that regions have czech pref label and are in ruian concept scheme.
 ex:RegionInSchemeShape a sh:NodeShape ;
 	sh:targetClass 
         <https://data.cssz.cz/ontology/ruian/Vusc>, 
@@ -36,7 +36,7 @@ ex:RegionInSchemeShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:hasValue <https://data.cssz.cz/resource/ruian/ConceptScheme> ;
-        sh:message "Region not in ruian concept scheme!"@en
+        sh:message "Region must be in ruian concept scheme!"@en
     ] ;
 	sh:property ex:CzechPrefLabelsShape .
 
@@ -56,7 +56,7 @@ ex:ObservationWithAllDimensionsShape a sh:NodeShape ;
 		sh:message "Ref period dimension must be present exactly once."
     ] .
 
-# Shape for specification of what can be object of dimension refArea - state, county, distict
+# Shape for specification of what can be object of dimension refArea - state, county, district.
 ex:ReferenceAreaShape
     a sh:NodeShape ;
     sh:targetObjectsOf ex-dimension:refArea ;

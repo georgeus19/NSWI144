@@ -10,20 +10,6 @@
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix interval:  <http://reference.data.gov.uk/def/intervals/> .
 
-# Check that for each region the ref period is that same
-ex:ObservationShape a sh:NodeShape ;
-	sh:targetClass qb:Observation ;
-	sh:property [
-    	sh:path ( ex-dimension:refArea [ sh:inversePath ex-dimension:refArea ] ex-dimension:refPeriod ) ;
-        sh:equals ex-dimension:refPeriod ;
-        sh:message "Ref period must be for observations for the same region the same."@en
-    ] ;
-	sh:property [
-      	sh:path ex-dimension:refArea ;
-    	sh:node ex:RegionShape ;
-		sh:minCount 1 ;
-		sh:message "Reference are must have shape accoring to RegionShape."@en
-    ] .
 
 # Node shape for regions.
 # Any region must be in ruain concept scheme and have only on pref label per language.
@@ -44,3 +30,31 @@ ex:RegionShape a sh:NodeShape ;
     ] .
 
 
+# Check basic properties of observations
+# 
+# Check that for each region the ref period is that same.
+# Check region shapes using RegionShape
+# Check the type of averageAge (xsd:decimal) and numberOfPeople (xsd:nonNegativeInteger).
+ex:ObservationShape a sh:NodeShape ;
+	sh:targetClass qb:Observation ;
+	sh:property [
+    	sh:path ( ex-dimension:refArea [ sh:inversePath ex-dimension:refArea ] ex-dimension:refPeriod ) ;
+        sh:equals ex-dimension:refPeriod ;
+        sh:message "Ref period must be for observations for the same region the same."@en
+    ] ;
+	sh:property [
+      	sh:path ex-dimension:refArea ;
+    	sh:node ex:RegionShape ;
+		sh:minCount 1 ;
+		sh:message "Reference areas are must have shape accoring to RegionShape."@en
+    ] ;
+	sh:property [
+    	sh:path ex-measure:averageAge ;
+        sh:message "Average age must have xsd decimal type."@en ;
+        sh:datatype xsd:decimal 
+    ] ;
+	sh:property [
+    	sh:path ex-measure:numberOfPeople ;
+        sh:message "Number of people must be xsd non negative interger."@en ;
+        sh:datatype xsd:nonNegativeInteger 
+    ].
